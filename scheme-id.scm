@@ -17,7 +17,7 @@
 (contact "Felix Winkelmann")
 
 (id cyclone)
-(title "Cyclone Scheme->C compiler")
+(title "Cyclone")
 (contact "Justin Ethier")
 
 (id gambit)
@@ -25,7 +25,7 @@
 (contact "Marc Feeley")
 
 (id gauche)
-(title "Gauche Scheme")
+(title "Gauche")
 (contact "Shiro Kawai")
 
 (id gerbil)
@@ -37,7 +37,7 @@
 (contact "Andy Wingo")
 
 (id kawa)
-(title "Kawa Scheme")
+(title "Kawa")
 (contact "Per Bothner")
 
 (id larceny)

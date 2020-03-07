@@ -44,13 +44,25 @@
 (title "Larceny")
 (contact "William Clinger")
 
+(id picrin)
+(title "Picrin")
+(contact "Yuichi Nishiwaki")
+
 (id s7)
 (title "s7")
 (contact "Bill Schottstaedt")
 
+(id s9fes)
+(title "Scheme 9 from Empty Space")
+(contact "Nils Holm")
+
 (id sagittarius)
 (title "Sagittarius Scheme")
 (contact "Takashi Kato")
+
+(id sigscheme)
+(title "SigScheme")
+(contact "Kazuki Ohta")
 
 (id stklos)
 (title "STklos")

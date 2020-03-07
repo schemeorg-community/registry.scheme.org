@@ -44,6 +44,10 @@
 (title "Larceny")
 (contact "William Clinger")
 
+(id s7)
+(title "s7")
+(contact "Bill Schottstaedt")
+
 (id sagittarius)
 (title "Sagittarius Scheme")
 (contact "Takashi Kato")

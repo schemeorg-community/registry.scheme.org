@@ -53,7 +53,7 @@
 (contact "William Clinger")
 
 (id loko)
-(title "Loko")
+(title "Loko Scheme")
 (contact "Göran Weinholt")
 
 (id picrin)

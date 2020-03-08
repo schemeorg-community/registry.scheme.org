@@ -36,6 +36,14 @@
 (title "GNU Guile")
 (contact "Andy Wingo")
 
+(id ikarus)
+(title "Ikarus Scheme")
+(contact "Abdulaziz Ghuloum")
+
+(id ironscheme)
+(title "IronScheme")
+(contact "Llewellyn Pritchard")
+
 (id kawa)
 (title "Kawa")
 (contact "Per Bothner")
@@ -43,6 +51,10 @@
 (id larceny)
 (title "Larceny")
 (contact "William Clinger")
+
+(id loko)
+(title "Loko")
+(contact "Göran Weinholt")
 
 (id picrin)
 (title "Picrin")
@@ -67,3 +79,7 @@
 (id stklos)
 (title "STklos")
 (contact "Erick Gallesio")
+
+(id ypsilon)
+(title "Ypsilon")
+(contact "Yoshikatsu Fujita")

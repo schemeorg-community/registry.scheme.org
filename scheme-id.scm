@@ -44,6 +44,10 @@
 (title "IronScheme")
 (contact "Llewellyn Pritchard")
 
+(id jazz)
+(title "JazzScheme")
+(contact "Guillaume Cartier")
+
 (id kawa)
 (title "Kawa")
 (contact "Per Bothner")

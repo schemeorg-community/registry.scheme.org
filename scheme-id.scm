@@ -60,6 +60,10 @@
 (title "Loko Scheme")
 (contact "Göran Weinholt")
 
+(id mit)
+(title "MIT Scheme")
+(contact "Chris Hanson")
+
 (id picrin)
 (title "Picrin")
 (contact "Yuichi Nishiwaki")

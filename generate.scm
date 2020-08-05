@@ -160,6 +160,7 @@
   (display "<!doctype html>")
   (display-sxml
    `(html
+     (@ (lang "en"))
      (head
       (title "Scheme Registry")
       (style ""

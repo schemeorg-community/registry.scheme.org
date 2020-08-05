@@ -77,6 +77,11 @@
                          `(tr ,@tds))))
                  rows)))
 
+(define (the-usual entry)
+  (cons (assoc? 'class entry)
+        `((code ,(symbol->string (assoc1 'id entry)))
+          ,(assoc1 'description entry))))
+
 ;;
 
 (define (scheme-id)
@@ -86,31 +91,20 @@
     ,(tabulate
       '("ID" "Name" "Contact")
       (map (lambda (entry)
-             (cons #f
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry)
-                     ,(assoc1 'contact entry))))
+             (append (the-usual entry) (list (assoc1 'contact entry))))
            (sort-by-id (group-file 'id "scheme-id.scm"))))))
 
 (define (operating-system)
   `((h2 "Operating systems")
     ,(tabulate
       '("ID" "Description")
-      (map (lambda (entry)
-             (cons #f
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry))))
-           (sort-by-id (group-file 'id "operating-system.scm"))))))
+      (map the-usual (sort-by-id (group-file 'id "operating-system.scm"))))))
 
 (define (machine)
   `((h2 "Machines")
     ,(tabulate
       '("ID" "Description")
-      (map (lambda (entry)
-             (cons #f
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry))))
-           (sort-by-id (group-file 'id "machine.scm"))))))
+      (map the-usual (sort-by-id (group-file 'id "machine.scm"))))))
 
 (define (splice-implementations)
   (classify "red" (group-file 'id "scheme-id.scm")))
@@ -125,47 +119,33 @@
   `((h2 "Feature identifiers")
     ,(tabulate
       '("ID" "Description")
-      (map (lambda (entry)
-             (cons (assoc? 'class entry)
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry))))
-           (sort-by-id
-            (append (group-file 'id "features.scm")
-                    (splice-implementations)
-                    (splice-operating-systems)
-                    (splice-machines)))))))
+      (map the-usual (sort-by-id (append (group-file 'id "features.scm")
+                                         (splice-implementations)
+                                         (splice-operating-systems)
+                                         (splice-machines)))))))
 
 (define (library-name)
   `((h2 "Library name prefixes")
     ,(tabulate
       '("ID" "Description")
-      (map (lambda (entry)
-             (cons (assoc? 'class entry)
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry))))
-           (sort-by-id
-            (append (group-file 'id "library-name.scm")
-                    (splice-implementations)))))))
+      (map the-usual (sort-by-id
+                      (append (group-file 'id "library-name.scm")
+                              (splice-implementations)))))))
 
 (define (reader-directive)
   `((h2 "Reader directives")
     ,(tabulate
       '("ID" "Description" "Prefixes")
       (map (lambda (entry)
-             (cons (assoc? 'class entry)
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry)
-                     (code ,(assoc1 'prefixes entry)))))
+             (append (the-usual entry)
+                     (list `(code ,(assoc1 'prefixes entry)))))
            (sort-by-id (group-file 'id "reader-directive.scm"))))))
 
 (define (foreign-status-set)
   `((h2 "Foreign status sets")
     ,(tabulate
       '("ID" "Description")
-      (map (lambda (entry)
-             (cons #f
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry))))
+      (map the-usual
            (sort-by-id (group-file 'id "foreign-status-set.scm"))))))
 
 (define (foreign-status-property)
@@ -173,10 +153,7 @@
     ,(tabulate
       '("ID" "Description" "Type")
       (map (lambda (entry)
-             (cons #f
-                   `((code ,(symbol->string (assoc1 'id entry)))
-                     ,(assoc1 'description entry)
-                     ,(assoc1 'type entry))))
+             (append (the-usual entry) (list (assoc1 'type entry))))
            (group-file 'id "foreign-status-property.scm")))))
 
 (define (display-page)

@@ -90,7 +90,7 @@
                    `((code ,(symbol->string (assoc1 'id entry)))
                      ,(assoc1 'description entry)
                      ,(assoc1 'contact entry))))
-           (group-file 'id "scheme-id.scm")))))
+           (sort-by-id (group-file 'id "scheme-id.scm"))))))
 
 (define (operating-system)
   `((h2 "Operating systems")
@@ -100,7 +100,7 @@
              (cons #f
                    `((code ,(symbol->string (assoc1 'id entry)))
                      ,(assoc1 'description entry))))
-           (group-file 'id "operating-system.scm")))))
+           (sort-by-id (group-file 'id "operating-system.scm"))))))
 
 (define (machine)
   `((h2 "Machines")
@@ -110,13 +110,16 @@
              (cons #f
                    `((code ,(symbol->string (assoc1 'id entry)))
                      ,(assoc1 'description entry))))
-           (group-file 'id "machine.scm")))))
+           (sort-by-id (group-file 'id "machine.scm"))))))
 
 (define (splice-implementations)
-  (map (lambda (entry)
-         `((id ,(assoc1 'id entry))
-           (description ,(assoc1 'description entry))))
-       (group-file 'id "scheme-id.scm")))
+  (classify "red" (group-file 'id "scheme-id.scm")))
+
+(define (splice-operating-systems)
+  (classify "green" (group-file 'id "operating-system.scm")))
+
+(define (splice-machines)
+  (classify "blue" (group-file 'id "machine.scm")))
 
 (define (feature)
   `((h2 "Feature identifiers")
@@ -128,12 +131,9 @@
                      ,(assoc1 'description entry))))
            (sort-by-id
             (append (group-file 'id "features.scm")
-                    (classify "red"
-                              (splice-implementations))
-                    (classify "green"
-                              (group-file 'id "operating-system.scm"))
-                    (classify "blue"
-                              (group-file 'id "machine.scm"))))))))
+                    (splice-implementations)
+                    (splice-operating-systems)
+                    (splice-machines)))))))
 
 (define (library-name)
   `((h2 "Library name prefixes")
@@ -145,7 +145,7 @@
                      ,(assoc1 'description entry))))
            (sort-by-id
             (append (group-file 'id "library-name.scm")
-                    (classify "red" (splice-implementations))))))))
+                    (splice-implementations)))))))
 
 (define (reader-directive)
   `((h2 "Reader directives")
@@ -156,8 +156,7 @@
                    `((code ,(symbol->string (assoc1 'id entry)))
                      ,(assoc1 'description entry)
                      (code ,(assoc1 'prefixes entry)))))
-           (sort-by-id
-            (append (group-file 'id "reader-directive.scm")))))))
+           (sort-by-id (group-file 'id "reader-directive.scm"))))))
 
 (define (foreign-status-set)
   `((h2 "Foreign status sets")
@@ -167,7 +166,7 @@
              (cons #f
                    `((code ,(symbol->string (assoc1 'id entry)))
                      ,(assoc1 'description entry))))
-           (group-file 'id "foreign-status-set.scm")))))
+           (sort-by-id (group-file 'id "foreign-status-set.scm"))))))
 
 (define (foreign-status-property)
   `((h2 "Foreign status properties")

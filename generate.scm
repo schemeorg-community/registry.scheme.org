@@ -1,4 +1,5 @@
 (import (scheme base) (scheme file) (scheme read) (scheme write))
+(import (srfi 132))
 
 (define (read-all)
   (let loop ((xs '()))
@@ -15,14 +16,29 @@
           (else
            (loop (cdr xs) gs (cons (car xs) g))))))
 
+(define (group-file head filename)
+  (group head (with-input-from-file filename read-all)))
+
+(define (assoc? key alist)
+  (let ((x (assoc key alist)))
+    (cond ((not x) #f)
+          ((and (list? x) (= 2 (length x))) (cadr x))
+          (else (error "Nope")))))
+
 (define (assoc1 key alist)
   (let ((x (assoc key alist)))
     (if (and (list? x) (= 2 (length x))) (cadr x) (error "Nope"))))
 
 (define (display-sxml x)
   (define (display* . xs) (for-each display xs))
+  (define (display-char char)
+    (let* ((cc (char->integer char))
+           (ok? (case char ((#\& #\< #\> #\") #f) (else (<= #x20 cc #x7e)))))
+      (if ok? (display char) (display* "&#" cc ";"))))
   (define (display-attribute attribute)
-    (display* " " (car attribute) "=" "\"" (cdr attribute) "\""))
+    (display* " " (car attribute) "=\"")
+    (string-for-each display-char (cadr attribute))
+    (display "\""))
   (cond ((pair? x)
          (display* "<" (car x))
          (let ((body (cond ((and (pair? (cdr x))
@@ -35,35 +51,162 @@
            (for-each display-sxml body)
            (display* "</" (car x) ">")))
         ((string? x)
-         (display x))
-        (else (error "Bad"))))
+         (string-for-each display-char x))
+        (else (error "Bad:" x))))
+
+;;
+
+(define (sort-by-id entries)
+  (list-sort (lambda (a b)
+               (string<? (symbol->string (assoc1 'id a))
+                         (symbol->string (assoc1 'id b))))
+             entries))
+
+(define (classify class entries)
+  (map (lambda (entry) `((class ,class) ,@entry))
+       entries))
+
+(define (tabulate column-headings rows)
+  `(table (tr ,@(map (lambda (heading) `(th ,heading))
+                     column-headings))
+          ,@(map (lambda (row)
+                   (let ((class (car row))
+                         (tds (map (lambda (column) `(td ,column))
+                                   (cdr row))))
+                     (if class `(tr (@ (class ,class)) ,@tds)
+                         `(tr ,@tds))))
+                 rows)))
 
 ;;
 
 (define (scheme-id)
-  `((h2 "Scheme ID")
-    (table
-     (tr
-      (th "ID")
-      (th "Title")
-      (th "Contact"))
-     ,@(map (lambda (entry)
-              `(tr (td (code ,(symbol->string (assoc1 'id entry))))
-                   (td ,(assoc1 'title entry))
-                   (td ,(assoc1 'contact entry))))
-            (group 'id (with-input-from-file "scheme-id.scm" read-all))))))
+  `((h2 "Scheme implementations")
+    (p "Scheme IDs for use in "
+       (code "features") ", " (code "cond-expand") ", and many other places.")
+    ,(tabulate
+      '("ID" "Name" "Contact")
+      (map (lambda (entry)
+             (cons #f
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry)
+                     ,(assoc1 'contact entry))))
+           (group-file 'id "scheme-id.scm")))))
+
+(define (operating-system)
+  `((h2 "Operating systems")
+    ,(tabulate
+      '("ID" "Description")
+      (map (lambda (entry)
+             (cons #f
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry))))
+           (group-file 'id "operating-system.scm")))))
+
+(define (machine)
+  `((h2 "Machines")
+    ,(tabulate
+      '("ID" "Description")
+      (map (lambda (entry)
+             (cons #f
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry))))
+           (group-file 'id "machine.scm")))))
+
+(define (splice-implementations)
+  (map (lambda (entry)
+         `((id ,(assoc1 'id entry))
+           (description ,(assoc1 'description entry))))
+       (group-file 'id "scheme-id.scm")))
+
+(define (feature)
+  `((h2 "Feature identifiers")
+    ,(tabulate
+      '("ID" "Description")
+      (map (lambda (entry)
+             (cons (assoc? 'class entry)
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry))))
+           (sort-by-id
+            (append (group-file 'id "features.scm")
+                    (classify "red"
+                              (splice-implementations))
+                    (classify "green"
+                              (group-file 'id "operating-system.scm"))
+                    (classify "blue"
+                              (group-file 'id "machine.scm"))))))))
+
+(define (library-name)
+  `((h2 "Library name prefixes")
+    ,(tabulate
+      '("ID" "Description")
+      (map (lambda (entry)
+             (cons (assoc? 'class entry)
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry))))
+           (sort-by-id
+            (append (group-file 'id "library-name.scm")
+                    (classify "red" (splice-implementations))))))))
+
+(define (reader-directive)
+  `((h2 "Reader directives")
+    ,(tabulate
+      '("ID" "Description" "Prefixes")
+      (map (lambda (entry)
+             (cons (assoc? 'class entry)
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry)
+                     (code ,(assoc1 'prefixes entry)))))
+           (sort-by-id
+            (append (group-file 'id "reader-directive.scm")))))))
+
+(define (foreign-status-set)
+  `((h2 "Foreign status sets")
+    ,(tabulate
+      '("ID" "Description")
+      (map (lambda (entry)
+             (cons #f
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry))))
+           (group-file 'id "foreign-status-set.scm")))))
+
+(define (foreign-status-property)
+  `((h2 "Foreign status properties")
+    ,(tabulate
+      '("ID" "Description" "Type")
+      (map (lambda (entry)
+             (cons #f
+                   `((code ,(symbol->string (assoc1 'id entry)))
+                     ,(assoc1 'description entry)
+                     ,(assoc1 'type entry))))
+           (group-file 'id "foreign-status-property.scm")))))
 
 (define (display-page)
+  (display "<!doctype html>")
   (display-sxml
    `(html
      (head
-      (title "Scheme registry")
-      (style "body { font-family: sans-serif; }"
+      (title "Scheme Registry")
+      (style ""
+        "body { font-family: sans-serif; background-color: beige; }"
+        "body { max-width: 40em; }"
+        "table { border-collapse: collapse; }"
         "table, th, td { border: 1px solid black; }"
-        "table { border-collapse: collapse; }"))
+        "th, td { vertical-align: top; padding: 2px; }"
+        "code { white-space: nowrap; }"
+        "tr.red td { background-color: sandybrown; }"
+        "tr.green td { background-color: lightgreen; }"
+        "tr.blue td { background-color: lightblue; }"
+        ))
      (body
-      (h1 "Scheme registry")
+      (h1 "Scheme Registry")
       (p "The Scheme registry collects identifiers.")
-      ,@(scheme-id)))))
+      ,@(scheme-id)
+      ,@(operating-system)
+      ,@(machine)
+      ,@(feature)
+      ,@(library-name)
+      ,@(reader-directive)
+      ,@(foreign-status-set)
+      ,@(foreign-status-property)))))
 
 (with-output-to-file "index.html" display-page)

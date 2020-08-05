@@ -1,93 +1,91 @@
-;;; Scheme implementation identifiers
-
 (id bigloo)
-(title "Bigloo")
+(description "Bigloo")
 (contact "Manuel Serrano")
 
 (id chezscheme)
-(title "Chez Scheme")
+(description "Chez Scheme")
 (contact "Kent Dybvig")
 
 (id chibi)
-(title "Chibi-Scheme")
+(description "Chibi-Scheme")
 (contact "Alex Shinn")
 
 (id chicken)
-(title "CHICKEN")
+(description "CHICKEN")
 (contact "Felix Winkelmann")
 
 (id cyclone)
-(title "Cyclone")
+(description "Cyclone")
 (contact "Justin Ethier")
 
 (id gambit)
-(title "Gambit Scheme")
+(description "Gambit Scheme")
 (contact "Marc Feeley")
 
 (id gauche)
-(title "Gauche")
+(description "Gauche")
 (contact "Shiro Kawai")
 
 (id gerbil)
-(title "Gerbil Scheme")
+(description "Gerbil Scheme")
 (contact "Dimitris Vyzovitis")
 
 (id guile)
-(title "GNU Guile")
+(description "GNU Guile")
 (contact "Andy Wingo")
 
 (id ikarus)
-(title "Ikarus Scheme")
+(description "Ikarus Scheme")
 (contact "Abdulaziz Ghuloum")
 
 (id ironscheme)
-(title "IronScheme")
+(description "IronScheme")
 (contact "Llewellyn Pritchard")
 
 (id jazz)
-(title "JazzScheme")
+(description "JazzScheme")
 (contact "Guillaume Cartier")
 
 (id kawa)
-(title "Kawa")
+(description "Kawa")
 (contact "Per Bothner")
 
 (id larceny)
-(title "Larceny")
+(description "Larceny")
 (contact "William Clinger")
 
 (id loko)
-(title "Loko Scheme")
+(description "Loko Scheme")
 (contact "Göran Weinholt")
 
 (id mit)
-(title "MIT Scheme")
+(description "MIT Scheme")
 (contact "Chris Hanson")
 
 (id picrin)
-(title "Picrin")
+(description "Picrin")
 (contact "Yuichi Nishiwaki")
 
 (id s7)
-(title "s7")
+(description "s7")
 (contact "Bill Schottstaedt")
 
 (id s9fes)
-(title "Scheme 9 from Empty Space")
+(description "Scheme 9 from Empty Space")
 (contact "Nils Holm")
 
 (id sagittarius)
-(title "Sagittarius Scheme")
+(description "Sagittarius Scheme")
 (contact "Takashi Kato")
 
 (id sigscheme)
-(title "SigScheme")
+(description "SigScheme")
 (contact "Kazuki Ohta")
 
 (id stklos)
-(title "STklos")
+(description "STklos")
 (contact "Erick Gallesio")
 
 (id ypsilon)
-(title "Ypsilon")
+(description "Ypsilon")
 (contact "Yoshikatsu Fujita")

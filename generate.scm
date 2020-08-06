@@ -1,4 +1,5 @@
-(import (scheme base) (scheme file) (scheme read) (scheme write))
+(import (scheme base) (scheme char) (scheme file)
+        (scheme read) (scheme write))
 (import (srfi 132))
 
 (define (read-all)
@@ -71,10 +72,18 @@
                      column-headings))
           ,@(map (lambda (row)
                    (let ((class (car row))
-                         (tds (map (lambda (column) `(td ,column))
-                                   (cdr row))))
-                     (if class `(tr (@ (class ,class)) ,@tds)
-                         `(tr ,@tds))))
+                         (tds (map (lambda (column heading)
+                                     `(td (@ (class
+                                               ,(string-append
+                                                 "p-"
+                                                 (string-downcase heading))))
+                                          ,column))
+                                   (cdr row)
+                                   column-headings)))
+                     `(tr (@ (class ,(if class
+                                         (string-append "h-x-entry" " " class)
+                                         "h-x-entry")))
+                          ,@tds)))
                  rows)))
 
 (define (the-usual entry)
@@ -82,29 +91,47 @@
         `((code ,(symbol->string (assoc1 'id entry)))
           ,(assoc1 'description entry))))
 
+(define (registry registry-title registry-id intro table)
+  `(section
+    (@ (class "h-x-registry")
+       (data-p-id ,registry-id))
+    (h2 (@ (class "p-title"))
+        ,registry-title)
+    (p "Registry ID: " (code (@ (class "p-id")) ,registry-id))
+    ,intro
+    ,table))
+
 ;;
 
 (define (scheme-id)
-  `((h2 "Scheme implementations")
-    (p "Scheme IDs for use in "
+  (registry
+   "Scheme implementations"
+   "scheme-id"
+   '(p "Scheme IDs for use in "
        (code "features") ", " (code "cond-expand") ", and many other places.")
-    ,(tabulate
-      '("ID" "Name" "Contact")
-      (map (lambda (entry)
-             (append (the-usual entry) (list (assoc1 'contact entry))))
-           (sort-by-id (group-file 'id "scheme-id.scm"))))))
+   (tabulate
+    '("ID" "Name" "Contact")
+    (map (lambda (entry)
+           (append (the-usual entry) (list (assoc1 'contact entry))))
+         (sort-by-id (group-file 'id "scheme-id.scm"))))))
 
 (define (operating-system)
-  `((h2 "Operating systems")
-    ,(tabulate
-      '("ID" "Description")
-      (map the-usual (sort-by-id (group-file 'id "operating-system.scm"))))))
+  (registry
+   "Operating systems"
+   "operating-system"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map the-usual (sort-by-id (group-file 'id "operating-system.scm"))))))
 
 (define (machine)
-  `((h2 "Machines")
-    ,(tabulate
-      '("ID" "Description")
-      (map the-usual (sort-by-id (group-file 'id "machine.scm"))))))
+  (registry
+   "Machines"
+   "machine"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map the-usual (sort-by-id (group-file 'id "machine.scm"))))))
 
 (define (splice-implementations)
   (classify "red" (group-file 'id "scheme-id.scm")))
@@ -116,45 +143,60 @@
   (classify "blue" (group-file 'id "machine.scm")))
 
 (define (feature)
-  `((h2 "Feature identifiers")
-    ,(tabulate
-      '("ID" "Description")
-      (map the-usual (sort-by-id (append (group-file 'id "features.scm")
-                                         (splice-implementations)
-                                         (splice-operating-systems)
-                                         (splice-machines)))))))
+  (registry
+   "Feature identifiers"
+   "features"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map the-usual (sort-by-id (append (group-file 'id "features.scm")
+                                       (splice-implementations)
+                                       (splice-operating-systems)
+                                       (splice-machines)))))))
 
 (define (library-name)
-  `((h2 "Library name prefixes")
-    ,(tabulate
-      '("ID" "Description")
-      (map the-usual (sort-by-id
-                      (append (group-file 'id "library-name.scm")
-                              (splice-implementations)))))))
+  (registry
+   "Library name prefixes"
+   "library-name"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map the-usual (sort-by-id
+                    (append (group-file 'id "library-name.scm")
+                            (splice-implementations)))))))
 
 (define (reader-directive)
-  `((h2 "Reader directives")
-    ,(tabulate
-      '("ID" "Description" "Prefixes")
-      (map (lambda (entry)
-             (append (the-usual entry)
-                     (list `(code ,(assoc1 'prefixes entry)))))
-           (sort-by-id (group-file 'id "reader-directive.scm"))))))
+  (registry
+   "Reader directives"
+   "reader-directive"
+   '(p)
+   (tabulate
+    '("ID" "Description" "Prefixes")
+    (map (lambda (entry)
+           (append (the-usual entry)
+                   (list `(code ,(assoc1 'prefixes entry)))))
+         (sort-by-id (group-file 'id "reader-directive.scm"))))))
 
 (define (foreign-status-set)
-  `((h2 "Foreign status sets")
-    ,(tabulate
-      '("ID" "Description")
-      (map the-usual
-           (sort-by-id (group-file 'id "foreign-status-set.scm"))))))
+  (registry
+   "Foreign status sets"
+   "foreign-status-set"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map the-usual
+         (sort-by-id (group-file 'id "foreign-status-set.scm"))))))
 
 (define (foreign-status-property)
-  `((h2 "Foreign status properties")
-    ,(tabulate
-      '("ID" "Description" "Type")
-      (map (lambda (entry)
-             (append (the-usual entry) (list (assoc1 'type entry))))
-           (group-file 'id "foreign-status-property.scm")))))
+  (registry
+   "Foreign status properties"
+   "foreign-status-property"
+   '(p)
+   (tabulate
+    '("ID" "Description" "Type")
+    (map (lambda (entry)
+           (append (the-usual entry) (list (assoc1 'type entry))))
+         (group-file 'id "foreign-status-property.scm")))))
 
 (define (display-page)
   (display "<!doctype html>")
@@ -177,13 +219,13 @@
      (body
       (h1 "Scheme Registry")
       (p "The Scheme registry collects identifiers.")
-      ,@(scheme-id)
-      ,@(operating-system)
-      ,@(machine)
-      ,@(feature)
-      ,@(library-name)
-      ,@(reader-directive)
-      ,@(foreign-status-set)
-      ,@(foreign-status-property)))))
+      ,(scheme-id)
+      ,(operating-system)
+      ,(machine)
+      ,(feature)
+      ,(library-name)
+      ,(reader-directive)
+      ,(foreign-status-set)
+      ,(foreign-status-property)))))
 
 (with-output-to-file "index.html" display-page)

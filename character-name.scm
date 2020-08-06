@@ -23,7 +23,7 @@
 (description "[R6RS]")
 
 (id null)
-(description "[R7RS")
+(description "[R7RS]")
 
 (id page)
 (description "[R6RS]")

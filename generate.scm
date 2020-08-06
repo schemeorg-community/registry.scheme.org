@@ -169,6 +169,15 @@
                     (append (group-file 'id "library-name.scm")
                             (splice-implementations)))))))
 
+(define (character-name)
+  (registry
+   "Character names"
+   "character-name"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map the-usual (sort-by-id (group-file 'id "character-name.scm"))))))
+
 (define (hash-syntax)
   (registry
    "# lexical syntax"
@@ -238,6 +247,7 @@
       ,(machine)
       ,(feature)
       ,(library-name)
+      ,(character-name)
       ,(hash-syntax)
       ,(hash-bang-syntax)
       ,(foreign-status-set)

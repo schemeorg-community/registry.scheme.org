@@ -165,17 +165,15 @@
                     (append (group-file 'id "library-name.scm")
                             (splice-implementations)))))))
 
-(define (reader-directive)
+(define (hash-bang-syntax)
   (registry
-   "Reader directives"
-   "reader-directive"
+   "#! lexical syntax"
+   "hash-bang-syntax"
    '(p)
    (tabulate
-    '("ID" "Description" "Prefixes")
-    (map (lambda (entry)
-           (append (the-usual entry)
-                   (list `(code ,(assoc1 'prefixes entry)))))
-         (sort-by-id (group-file 'id "reader-directive.scm"))))))
+    '("ID" "Description")
+    (map the-usual
+         (sort-by-id (group-file 'id "hash-bang-syntax.scm"))))))
 
 (define (foreign-status-set)
   (registry
@@ -224,7 +222,7 @@
       ,(machine)
       ,(feature)
       ,(library-name)
-      ,(reader-directive)
+      ,(hash-bang-syntax)
       ,(foreign-status-set)
       ,(foreign-status-property)))))
 

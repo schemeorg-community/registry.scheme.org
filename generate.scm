@@ -63,6 +63,10 @@
                          (symbol->string (assoc1 'id b))))
              entries))
 
+(define (sort-by-string-id entries)
+  (list-sort (lambda (a b) (string<? (assoc1 'id a) (assoc1 'id b)))
+             entries))
+
 (define (classify class entries)
   (map (lambda (entry) `((class ,class) ,@entry))
        entries))
@@ -165,6 +169,19 @@
                     (append (group-file 'id "library-name.scm")
                             (splice-implementations)))))))
 
+(define (hash-syntax)
+  (registry
+   "# lexical syntax"
+   "hash-syntax"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map (lambda (entry)
+           (cons (assoc? 'class entry)
+                 `((code ,(assoc1 'id entry))
+                   ,(assoc1 'description entry))))
+         (sort-by-string-id (group-file 'id "hash-syntax.scm"))))))
+
 (define (hash-bang-syntax)
   (registry
    "#! lexical syntax"
@@ -172,8 +189,7 @@
    '(p)
    (tabulate
     '("ID" "Description")
-    (map the-usual
-         (sort-by-id (group-file 'id "hash-bang-syntax.scm"))))))
+    (map the-usual (sort-by-id (group-file 'id "hash-bang-syntax.scm"))))))
 
 (define (foreign-status-set)
   (registry
@@ -222,6 +238,7 @@
       ,(machine)
       ,(feature)
       ,(library-name)
+      ,(hash-syntax)
       ,(hash-bang-syntax)
       ,(foreign-status-set)
       ,(foreign-status-property)))))

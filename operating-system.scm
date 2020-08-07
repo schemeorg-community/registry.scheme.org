@@ -1,35 +1,35 @@
 (id bsd)
-(description "An operating system in the BSD Unix family")
+(description "Operating system in BSD Unix family")
 
 (id darwin)
-(description "Darwin-based (Apple macOS X, iOS) operating system")
+(description "Operating system based on Darwin kernel (Apple macOS X, iOS)")
 
 (id dragonfly)
-(description "The DragonFlyBSD operating system")
+(description "DragonFly BSD operating system")
 
 (id freebsd)
-(description "The FreeBSD operating system")
+(description "FreeBSD operating system")
 
 (id gnu-linux)
-(description "A GNU/Linux distribution")
+(description "GNU/Linux operating system distribution")
 
 (id macosx)
 (description "Apple MacOS X operating system (see also: darwin)")
 
 (id netbsd)
-(description "The NetBSD operating system")
+(description "NetBSD operating system")
 
 (id openbsd)
-(description "The OpenBSD operating system")
+(description "OpenBSD operating system")
 
 (id posix)
-(description "This implementation is running on a POSIX system")
+(description "POSIX-compatible operating system")
 
 (id solaris)
-(description "The Solaris/SunOS operating system")
+(description "Operating system in Solaris family")
 
 (id unix)
 (description "Unix-like operating system")
 
 (id windows)
-(description "Microsoft Windows operating system")
+(description "Operating system in Windows family")

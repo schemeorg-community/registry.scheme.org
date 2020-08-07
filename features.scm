@@ -43,3 +43,83 @@
 
 (id little-endian)
 (description "The CPU byte order is little-endian")
+
+;; Others
+
+(id |64bit|)
+(description "Running on a 64-bit CPU (note: symbol starts with number)")
+
+(id complex)
+(description "Complex numbers are provided")
+
+(id clang)
+(description "LLVM clang compiler [Chicken]")
+
+(id crypto)
+(description "Crypto interface [Sagittarius]")
+
+(id csi)
+(description "Chicken Scheme interpreter")
+
+(id dload)
+(description "Dynamic loading of C libraries [Chicken]")
+
+(id dynamic-loading)
+(description "Dynamic loading of C libraries [Chibi]")
+
+(id ffi)
+(description "[Sagittarius]")
+
+(id ffi-vargs)
+(description "[Sagittarius]")
+
+(id full-numeric-tower)
+(description "All RnRS number types are implemented [Chicken]")
+
+(id manyargs)
+(description "[Chicken]")
+
+(id mit/gnu)
+(description "MIT/GNU Scheme")
+
+(id modules)
+(description "[Chibi]")
+
+(id odbc)
+(description "ODBC interface [Sagittarius]")
+
+(id ptables)
+(description "[Chicken]")
+
+(id socket)
+(description "Sockets interface [Sagittarius]")
+
+(id srfi-*)
+(description "Scheme Request for Implementation number N implemented")
+
+(id swank)
+(description "Common Lisp SWANK remote REPL protocol supported")
+
+(id termios)
+(description "Termios interface [Sagittarius]")
+
+(id threads)
+(description "Multi-threading is supported (either green threads or OS threads)")
+
+(id regexp-backrefs)
+(description "[SRFI 115]")
+
+(id regexp-look-around)
+(description "[SRFI 115]")
+
+(id regexp-non-greedy)
+(description "[SRFI 115]")
+
+(id regexp-unicode)
+(description "[SRFI 115]")
+
+(id uvector)
+(description "[Chibi]")
+
+(id zlib)
+(description "Zlib interface [Sagittarius]")

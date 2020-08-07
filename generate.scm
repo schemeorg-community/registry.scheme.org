@@ -238,10 +238,27 @@
         "tr.red td { background-color: sandybrown; }"
         "tr.green td { background-color: lightgreen; }"
         "tr.blue td { background-color: lightblue; }"
+        ".intro { background-color: lightyellow; padding: 12px;"
+        " border: 1px solid gray; border-radius: 10px; }"
         ))
      (body
       (h1 "Scheme Registry")
-      (p "The Scheme registry collects identifiers.")
+      (p (@ (class "intro")) "A catalog of the defined symbols,"
+         " identifiers and other pieces of data used by Scheme"
+         " standards and implementations.")
+      (p "Administration happens on the " (code "schemeregistry")
+         " mailing list ("
+         (a (@ (href "https://srfi-email.schemers.org/schemeregistry/"))
+            "archives")
+         ", "
+         (a (@ (href ,(string-append
+                       "https://srfi.schemers.org/srfi-list-subscribe.html"
+                       "#schemeregistry")))
+            "subscribe")
+         "). Feel free to suggest additions and corrections there."
+         " Source is in a "
+         (a (@ (href "https://github.com/srfi-explorations/registry"))
+            "git repository") ".")
       ,(scheme-id)
       ,(operating-system)
       ,(machine)

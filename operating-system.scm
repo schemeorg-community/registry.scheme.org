@@ -13,6 +13,9 @@
 (id gnu-linux)
 (description "A GNU/Linux distribution")
 
+(id macosx)
+(description "Apple MacOS X operating system (see also: darwin)")
+
 (id netbsd)
 (description "The NetBSD operating system")
 

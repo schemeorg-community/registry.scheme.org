@@ -66,6 +66,10 @@
 (description "Picrin")
 (contact "Yuichi Nishiwaki")
 
+(id racket)
+(description "Racket")
+(contact "Matthew Flatt")
+
 (id s7)
 (description "s7")
 (contact "Bill Schottstaedt")

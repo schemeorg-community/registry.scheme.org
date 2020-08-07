@@ -222,7 +222,11 @@
          (group-file 'id "foreign-status-property.scm")))))
 
 (define (display-page)
-  (display "<!doctype html>")
+  (display (string-append
+            "<!doctype html>"
+            "<!-- SPDX-License-Identifier: CC0-1.0 -->"
+            "<!-- This page uses https://microformats.org/wiki/microformats2"
+            " tagging and can be parsed by machine. -->"))
   (display-sxml
    `(html
      (@ (lang "en"))

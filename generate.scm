@@ -229,8 +229,8 @@
      (head
       (title "Scheme Registry")
       (style ""
-        "body { font-family: sans-serif; background-color: beige; }"
-        "body { max-width: 40em; }"
+        "body { font-family: sans-serif; background-color: beige;"
+        " max-width: 40em; margin: 12px; }"
         "table { border-collapse: collapse; }"
         "table, th, td { border: 1px solid black; }"
         "th, td { vertical-align: top; padding: 2px; }"

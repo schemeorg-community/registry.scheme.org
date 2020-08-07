@@ -50,7 +50,8 @@
                            (else (cdr x)))))
            (display ">")
            (for-each display-sxml body)
-           (display* "</" (car x) ">")))
+           (unless (memq (car x) '(meta))
+             (display* "</" (car x) ">"))))
         ((string? x)
          (string-for-each display-char x))
         (else (error "Bad:" x))))
@@ -232,6 +233,7 @@
      (@ (lang "en"))
      (head
       (title "Scheme Registry")
+      (meta (@ (charset "UTF-8")))
       (style ""
         "body { font-family: sans-serif; background-color: beige;"
         " max-width: 40em; margin: 12px; }"

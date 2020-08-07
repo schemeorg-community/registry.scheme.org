@@ -1,6 +1,13 @@
 (import (scheme base) (scheme char) (scheme file)
         (scheme read) (scheme write))
-(import (srfi 132))
+
+(define (list-sort < xs)
+  (define (insert x xs)
+    (if (null? xs) (list x)
+        (if (< x (car xs)) (cons x xs)
+            (cons (car xs) (insert x (cdr xs))))))
+  (let loop ((xs xs))
+    (if (null? xs) '() (insert (car xs) (loop (cdr xs))))))
 
 (define (read-all)
   (let loop ((xs '()))

@@ -171,7 +171,7 @@
 
 (define (character-name)
   (registry
-   "Character names"
+   "#\\ character names"
    "character-name"
    '(p)
    (tabulate

@@ -13,6 +13,9 @@
 (id gnu-linux)
 (description "GNU/Linux operating system distribution")
 
+(id linux)
+(description "Operating system based on Linux kernel")
+
 (id macosx)
 (description "Apple MacOS X operating system (see also: darwin)")
 

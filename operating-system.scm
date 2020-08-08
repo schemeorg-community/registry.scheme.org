@@ -1,6 +1,9 @@
 (id bsd)
 (description "Operating system in BSD Unix family")
 
+(id cygwin)
+(description "Cygwin Unix emulator on Windows")
+
 (id darwin)
 (description "Operating system based on Darwin kernel (Apple macOS X, iOS)")
 
@@ -9,6 +12,9 @@
 
 (id freebsd)
 (description "FreeBSD operating system")
+
+(id gnu)
+(description "Operating system with GNU userland")
 
 (id gnu-linux)
 (description "GNU/Linux operating system distribution")

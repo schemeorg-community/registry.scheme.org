@@ -118,6 +118,9 @@
 (id regexp-unicode)
 (description "[SRFI 115]")
 
+(id syntax-case)
+(description "syntax-case macros are available")
+
 (id uvector)
 (description "[Chibi]")
 

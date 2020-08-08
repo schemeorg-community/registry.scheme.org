@@ -62,6 +62,10 @@
 (description "MIT Scheme")
 (contact "Chris Hanson")
 
+(id mzscheme)
+(description "MzScheme")
+(contact "Matthew Flatt")
+
 (id picrin)
 (description "Picrin")
 (contact "Yuichi Nishiwaki")

@@ -1,3 +1,7 @@
+(id airship)
+(description "Airship Scheme")
+(contact "Michael Babich")
+
 (id bigloo)
 (description "Bigloo")
 (contact "Manuel Serrano")

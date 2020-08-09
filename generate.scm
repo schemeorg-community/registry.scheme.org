@@ -115,6 +115,16 @@
 
 ;;
 
+(define (scheme-standard)
+  (registry
+   "Scheme standards"
+   "scheme-standard"
+   '(p)
+   (tabulate
+    '("ID" "Name")
+    (map the-usual
+         (sort-by-id (group-file 'id "scheme-standard.scm"))))))
+
 (define (scheme-id)
   (registry
    "Scheme implementations"
@@ -275,6 +285,7 @@
          " Source is in a "
          (a (@ (href "https://github.com/srfi-explorations/registry"))
             "git repository") ".")
+      ,(scheme-standard)
       ,(scheme-id)
       ,(operating-system)
       ,(machine)

@@ -29,7 +29,7 @@
 (sample-code "2003")
 
 (id gethostby)
-(description "gethostbyname() and gethostbyaddr() return values")
+(description "BSD Unix gethostbyname(), gethostbyaddr(), and h_errno values")
 (sample-name "HOST_NOT_FOUND")
 (sample-code "1")
 

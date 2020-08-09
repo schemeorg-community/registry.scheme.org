@@ -7,6 +7,9 @@
 (id http)
 (description "Hypertext Transfer Protocol status codes")
 
+(id libarchive)
+(description "The libarchive archiving and compression library")
+
 (id libsodium)
 (description "The libsodium cryptography library")
 

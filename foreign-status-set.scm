@@ -13,8 +13,11 @@
 (id mysql)
 (description "MySQL and MariaDB database errors")
 
+(id gethostby)
+(description "gethostbyname() and gethostbyaddr() return values")
+
 (id netdb)
-(description "POSIX/Unix netdb.h error values")
+(description "POSIX/Unix netdb.h EAI error values")
 
 (id postgresql)
 (description "PostgreSQL errors")

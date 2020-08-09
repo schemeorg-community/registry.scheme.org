@@ -214,8 +214,11 @@
    "foreign-status-set"
    '(p)
    (tabulate
-    '("ID" "Description")
-    (map the-usual
+    '("ID" "Description" "Sample name" "Sample code")
+    (map (lambda (entry)
+           (append (the-usual entry)
+                   `((code ,(assoc1 'sample-name entry))
+                     (code ,(assoc1 'sample-code entry)))))
          (sort-by-id (group-file 'id "foreign-status-set.scm"))))))
 
 (define (foreign-status-property)

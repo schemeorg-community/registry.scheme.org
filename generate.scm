@@ -107,7 +107,7 @@
   `(section
     (@ (class "h-x-registry")
        (data-p-id ,registry-id))
-    (h2 (@ (class "p-title"))
+    (h2 (@ (class "p-title") (id ,registry-id))
         ,registry-title)
     (p "Registry ID: " (code (@ (class "p-id")) ,registry-id))
     ,intro

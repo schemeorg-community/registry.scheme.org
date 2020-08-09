@@ -18,6 +18,11 @@
 (sample-name "ARCHIVE_FAILED")
 (sample-code "-25")
 
+(id libcurl)
+(description "The libcurl networking library")
+(sample-name "CURLE_GOT_NOTHING")
+(sample-code "52")
+
 (id libsodium)
 (description "The libsodium cryptography library")
 (sample-name "")

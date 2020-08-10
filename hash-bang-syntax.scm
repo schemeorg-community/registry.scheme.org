@@ -24,3 +24,6 @@
 
 (id rest)
 (description "start rest argument in lambda list [DSSSL]")
+
+(id void)
+(description "void object")

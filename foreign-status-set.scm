@@ -28,6 +28,11 @@
 (sample-name "")
 (sample-code "")
 
+(id opengl)
+(description "The OpenGL 3D graphics API")
+(sample-name "GL_INVALID_ENUM")
+(sample-code "#x0500")
+
 (id mysql)
 (description "MySQL and MariaDB database errors")
 (sample-name "CR_CONN_HOST_ERROR")
@@ -62,3 +67,8 @@
 (description "Microsoft Windows Sockets API")
 (sample-name "WSAENOTCONN")
 (sample-code "10057")
+
+(id zlib)
+(description "The zlib compression library")
+(sample-name "Z_STREAM_ERROR")
+(sample-code "-2")

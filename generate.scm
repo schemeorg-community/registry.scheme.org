@@ -109,7 +109,10 @@
        (data-p-id ,registry-id))
     (h2 (@ (class "p-title") (id ,registry-id))
         ,registry-title)
-    (p "Registry ID: " (code (@ (class "p-id")) ,registry-id))
+    (p "Registry ID: " (a (@ (class "registry-anchor")
+                             (href ,(string-append "#" registry-id)))
+                          (code (@ (class "p-id"))
+                                ,registry-id)))
     ,intro
     ,table))
 
@@ -266,7 +269,8 @@
         "tr.blue td { background-color: lightblue; }"
         ".intro { background-color: lightyellow; padding: 12px;"
         " border: 1px solid gray; border-radius: 10px; }"
-        ))
+        "a.registry-anchor, a.registry-anchor:visited { color: navy;"
+        " border-bottom: 1px dashed navy; text-decoration: none; }"))
      (body
       (h1 "Scheme Registry")
       (p (@ (class "intro")) "A catalog of the defined symbols,"

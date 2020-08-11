@@ -1,6 +1,9 @@
 (id bwp)
 (description "broken-weak-pair object [Chez Scheme]")
 
+(id chezscheme)
+(description "change to Chez Scheme read syntax")
+
 (id eof)
 (description "end-of-file object")
 

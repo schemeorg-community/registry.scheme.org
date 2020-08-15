@@ -41,3 +41,19 @@
 (id ".sps7")
 (stands-for "Scheme program source")
 (description "R7RS program [rare]")
+
+(id ".six")
+(stands-for "Scheme infix")
+(description "Scheme + infix lexical syntax [Gambit]")
+
+(id ".stk")
+(stands-for "STk")
+(description "Scheme code written in the STk/STklos dialect")
+
+(id ".brl")
+(stands-for "Beautiful Report Language")
+(description "Text document in BRL [Kawa]")
+
+(id ".krl")
+(stands-for "Kawa Report Language")
+(description "Text document in KRL [Kawa]")

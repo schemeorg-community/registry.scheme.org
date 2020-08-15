@@ -1,7 +1,7 @@
 (id dsssl)
 (description "Document Style Semantics and Specification Language (ISO/IEC 10179:1996)")
 
-(id ieee-scheme)
+(id ieee-1178-1990)
 (description "IEEE Standard for the Scheme Programming Language (1178-1990)")
 
 (id r0rs)

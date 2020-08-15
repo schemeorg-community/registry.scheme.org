@@ -221,6 +221,20 @@
     '("ID" "Description")
     (map the-usual (sort-by-id (group-file 'id "hash-bang-syntax.scm"))))))
 
+(define (filename-extension)
+  (registry
+   "Filename extension"
+   "filename-extension"
+   '(p)
+   (tabulate
+    '("Extension" "Stands for" "Description")
+    (map (lambda (entry)
+           (cons (assoc? 'class entry)
+                 `((code ,(assoc1 'id entry))
+                   ,(assoc1 'stands-for entry)
+                   ,(assoc1 'description entry))))
+         (group-file 'id "filename-extension.scm")))))
+
 (define (foreign-status-set)
   (registry
    "Foreign status sets"
@@ -298,6 +312,7 @@
       ,(character-name)
       ,(hash-syntax)
       ,(hash-bang-syntax)
+      ,(filename-extension)
       ,(foreign-status-set)
       ,(foreign-status-property)))))
 

@@ -13,17 +13,29 @@
 (id "#,")
 (description "Reader constructor [SRFI 10]")
 
+(id "#,")
+(description "unsyntax [R6RS, syntax-case]")
+
+(id "#,@")
+(description "unsyntax-splicing [R6RS, syntax-case]")
+
 (id "#/")
 (description "Regular expression [Gauche]")
 
 (id "#:")
-(description "Uninterned symbol [Gauche]")
+(description "Keyword [Guile, Kawa, Racket]; Uninterned symbol [Gauche]")
 
 (id "#;")
-(description "S-expression comment [SRFI 62]")
+(description "S-expression comment [R6RS, R7RS, SRFI 62]")
 
-(id "#<")
+(id "#<...>")
 (description "Unreadable object [Gauche]")
+
+(id "#<n>#")
+(description "Datum reference [R7RS]")
+
+(id "#<n>=")
+(description "Datum label [R7RS]")
 
 (id "#?")
 (description "Debug macro [Gauche]")
@@ -35,7 +47,7 @@
 (description "Literal character [R7RS]")
 
 (id "#`")
-(description "String interpolation (legacy) [Gauche]")
+(description "quasisyntax [R6RS, syntax-case]; legacy string interpolation [Gauche]")
 
 (id "#|")
-(description "Block comment until |# [SRFI 30]")
+(description "Block comment until |# [R6RS, R7RS, SRFI 30]")

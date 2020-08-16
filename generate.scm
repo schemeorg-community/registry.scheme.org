@@ -218,8 +218,13 @@
    "hash-bang-syntax"
    '(p)
    (tabulate
-    '("ID" "Description")
-    (map the-usual (sort-by-id (group-file 'id "hash-bang-syntax.scm"))))))
+    '("ID" "Role" "Description")
+    (map (lambda (entry)
+           (cons (assoc? 'class entry)
+                 `((code ,(symbol->string (assoc1 'id entry)))
+                   ,(symbol->string (assoc1 'role entry))
+                   ,(assoc1 'description entry))))
+         (sort-by-id (group-file 'id "hash-bang-syntax.scm"))))))
 
 (define (filename-extension)
   (registry

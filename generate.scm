@@ -223,7 +223,7 @@
 
 (define (filename-extension)
   (registry
-   "Filename extension"
+   "Filename extensions"
    "filename-extension"
    '(p)
    (tabulate

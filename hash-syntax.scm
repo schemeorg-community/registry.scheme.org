@@ -1,5 +1,5 @@
 (id "#!")
-(description "Identifier follows [R6RS+]; Unix script [SRFI 22]")
+(description "Identifier follows [R6RS+]; Unix script [SRFI 22]; #! ... !# comment [Guile]")
 
 (id "#\"")
 (description "Interpolated string [Gauche]")
@@ -58,6 +58,9 @@
 (id "#d")
 (description "Decimal number [R2RS+]")
 
+(id "#<n>d")
+(description "n-dimensional vector [s7]")
+
 (id "#e")
 (description "Exact number [R2RS+]")
 
@@ -68,16 +71,25 @@
 (description "Boolean false [R7RS]")
 
 (id "#i")
-(description "Inexact number [R2RS+]")
+(description "Inexact number [R2RS+]; n-dimensional integer vector [s7]")
 
 (id "#o")
 (description "Octal integer [R2RS+]")
+
+(id "#r")
+(description "n-dimensional real (i.e. float) vector [s7]")
+
+(id "#<n>r")
+(description "Number in radix n [Chez Scheme]")
 
 (id "#t")
 (description "Boolean true [R3RS+]")
 
 (id "#true")
 (description "Boolean true [R7RS]")
+
+(id "u(...)")
+(description "n-dimensional bytevector [s7]")
 
 (id "u8(...)")
 (description "Bytevector [R7RS]")

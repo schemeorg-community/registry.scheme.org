@@ -41,7 +41,7 @@
 (description "Character set [Gauche]")
 
 (id "#\\")
-(description "Literal character [R7RS]")
+(description "Literal character [R2RS+]")
 
 (id "#`")
 (description "quasisyntax [R6RS, syntax-case]; legacy interpolated string [Gauche]")

@@ -11,10 +11,7 @@
 (description "Incomplete string [Gauche]")
 
 (id "#,")
-(description "Reader constructor [SRFI 10]")
-
-(id "#,")
-(description "unsyntax [R6RS, syntax-case]")
+(description "unsyntax [R6RS, syntax-case]; Reader constructor [SRFI 10]")
 
 (id "#,@")
 (description "unsyntax-splicing [R6RS, syntax-case]")
@@ -49,8 +46,8 @@
 (id "#`")
 (description "quasisyntax [R6RS, syntax-case]; legacy interpolated string [Gauche]")
 
-(id "#|")
-(description "Block comment until |# [R6RS, R7RS, SRFI 30]")
+(id "#|...|#")
+(description "Block comment [R6RS, R7RS, SRFI 30]")
 
 (id "#b")
 (description "Binary integer [R2RS+]")

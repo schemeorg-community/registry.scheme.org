@@ -28,7 +28,7 @@
 
 (id null)
 (role object)
-(description "the empty list [R2RS, archaic]")
+(description "the empty list [R2RS, archaic]; Java null [Kawa]")
 
 (id optional)
 (role keyword)

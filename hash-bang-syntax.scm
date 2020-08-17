@@ -10,6 +10,10 @@
 (role object)
 (description "end-of-file object")
 
+(id false)
+(role object)
+(description "the boolean value false [R2RS, archaic]")
+
 (id fold-case)
 (role directive)
 (description "change to case insensitive identifiers [R7RS]")
@@ -37,6 +41,10 @@
 (id rest)
 (role keyword)
 (description "start rest argument in lambda list [DSSSL]")
+
+(id true)
+(role object)
+(description "the boolean value true [R2RS, archaic]")
 
 (id void)
 (role object)

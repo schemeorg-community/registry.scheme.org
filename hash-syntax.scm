@@ -58,6 +58,12 @@
 (id "#b")
 (description "Binary integer [R2RS+]")
 
+(id "#ci")
+(description "Change to case insensitive identifiers [Chicken]")
+
+(id "#cs")
+(description "Change to case sensitive identifiers [Chicken]")
+
 (id "#d")
 (description "Decimal number [R2RS+]")
 

@@ -22,6 +22,10 @@
 (role keyword)
 (description "start keyword arguments in lambda list [DSSSL]")
 
+(id larceny)
+(role directive)
+(description "implies #!no-fold-case and #!err5rs [Larceny]")
+
 (id no-fold-case)
 (role directive)
 (description "change to case sensitive identifiers [R7RS]")
@@ -34,13 +38,21 @@
 (role keyword)
 (description "start optional arguments in lambda list [DSSSL]")
 
+(id err5rs)
+(role directive)
+(description "change to R7RS/R6RS syntax with extensions [Larceny]")
+
+(id r5rs)
+(role directive)
+(description "change to R7RS syntax with #!fold-case [Larceny]")
+
 (id r6rs)
 (role directive)
 (description "change to R6RS read syntax [R6RS]")
 
 (id r7rs)
 (role directive)
-(description "change to R7RS read syntax")
+(description "change to R7RS syntax with #!no-fold-case [Gauche, Larceny]")
 
 (id rest)
 (role keyword)

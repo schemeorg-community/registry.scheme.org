@@ -47,7 +47,7 @@
 (description "Literal character [R7RS]")
 
 (id "#`")
-(description "quasisyntax [R6RS, syntax-case]; legacy string interpolation [Gauche]")
+(description "quasisyntax [R6RS, syntax-case]; legacy interpolated string [Gauche]")
 
 (id "#|")
 (description "Block comment until |# [R6RS, R7RS, SRFI 30]")

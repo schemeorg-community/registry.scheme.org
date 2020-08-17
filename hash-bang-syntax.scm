@@ -26,6 +26,10 @@
 (role directive)
 (description "change to case sensitive identifiers [R7RS]")
 
+(id null)
+(role object)
+(description "the empty list [R2RS, archaic]")
+
 (id optional)
 (role keyword)
 (description "start optional arguments in lambda list [DSSSL]")

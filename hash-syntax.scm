@@ -1,16 +1,16 @@
 (id "#!")
 (description "Identifier follows [R6RS+]; Unix script [SRFI 22]; #! ... !# comment [Guile]")
 
-(id "#\"")
+(id "#\"...\"")
 (description "Interpolated string [Gauche]")
 
 (id "#'")
 (description "Syntax datum [R6RS, syntax-case]")
 
-(id "#(")
+(id "#(...)")
 (description "Vector [R7RS]")
 
-(id "#*")
+(id "#*\"...\"")
 (description "Incomplete string [Gauche]")
 
 (id "#,")
@@ -19,7 +19,7 @@
 (id "#,@")
 (description "unsyntax-splicing [R6RS, syntax-case]")
 
-(id "#/")
+(id "#/.../")
 (description "Regular expression [Gauche]")
 
 (id "#:")
@@ -40,7 +40,7 @@
 (id "#?")
 (description "Debug macro [Gauche]")
 
-(id "#[")
+(id "#[...]")
 (description "Character set [Gauche]")
 
 (id "#\\")

@@ -53,13 +53,13 @@
 (description "Block comment until |# [R6RS, R7RS, SRFI 30]")
 
 (id "#f")
-(description "false [R3RS+]")
+(description "Boolean false [R3RS+]")
 
 (id "#false")
-(description "false [R7RS]")
+(description "Boolean false [R7RS]")
 
 (id "#t")
-(description "true [R3RS+]")
+(description "Boolean true [R3RS+]")
 
 (id "#true")
-(description "true [R7RS]")
+(description "Boolean true [R7RS]")

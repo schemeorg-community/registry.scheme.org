@@ -52,14 +52,32 @@
 (id "#|")
 (description "Block comment until |# [R6RS, R7RS, SRFI 30]")
 
+(id "#b")
+(description "Binary integer [R2RS+]")
+
+(id "#d")
+(description "Decimal number [R2RS+]")
+
+(id "#e")
+(description "Exact number [R2RS+]")
+
 (id "#f")
 (description "Boolean false [R3RS+]")
 
 (id "#false")
 (description "Boolean false [R7RS]")
 
+(id "#i")
+(description "Inexact number [R2RS+]")
+
+(id "#o")
+(description "Octal integer [R2RS+]")
+
 (id "#t")
 (description "Boolean true [R3RS+]")
 
 (id "#true")
 (description "Boolean true [R7RS]")
+
+(id "#x")
+(description "Hexadecimal integer [R2RS+]")

@@ -23,7 +23,7 @@
 (description "Regular expression [Gauche]")
 
 (id "#:")
-(description "Keyword [Guile, Kawa, Racket]; Uninterned symbol [Gauche]")
+(description "Keyword object [Chicken, Guile, S7]; Keyword marker [Kawa, Racket]; Uninterned symbol [Gauche]")
 
 (id "#;")
 (description "S-expression comment [R6RS, R7RS, SRFI 62]")

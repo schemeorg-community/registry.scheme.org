@@ -196,8 +196,13 @@
    "character-name"
    '(p)
    (tabulate
-    '("ID" "Description")
-    (map the-usual (sort-by-id (group-file 'id "character-name.scm"))))))
+    '("ID" "Escape" "Description")
+    (map (lambda (entry)
+           (cons (assoc? 'class entry)
+                 `((code ,(symbol->string (assoc1 'id entry)))
+                   (code ,(or (assoc? 'string-escape entry) ""))
+                   ,(assoc1 'description entry))))
+         (sort-by-id (group-file 'id "character-name.scm"))))))
 
 (define (hash-syntax)
   (registry

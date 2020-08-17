@@ -29,7 +29,7 @@
 (description "S-expression comment [R6RS, R7RS, SRFI 62]")
 
 (id "#<...>")
-(description "Unreadable object [Gauche]")
+(description "XML literal [SRFI 107]; Unreadable object [Gauche]")
 
 (id "#<n>#")
 (description "Datum reference [R7RS]")
@@ -51,6 +51,9 @@
 
 (id "#|...|#")
 (description "Block comment [R6RS, R7RS, SRFI 30]")
+
+(id "#a")
+(description "Array [SRFI 58, SRFI 163]")
 
 (id "#b")
 (description "Binary integer [R2RS+]")

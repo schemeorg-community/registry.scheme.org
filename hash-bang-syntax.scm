@@ -8,7 +8,7 @@
 
 (id eof)
 (role object)
-(description "end-of-file object")
+(description "end-of-file object [Chez Scheme, Chicken, Gambit, Kawa]")
 
 (id false)
 (role object)
@@ -52,4 +52,4 @@
 
 (id void)
 (role object)
-(description "void object")
+(description "void object [Gambit, Kawa]")

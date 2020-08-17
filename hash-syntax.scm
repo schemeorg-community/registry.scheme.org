@@ -79,5 +79,11 @@
 (id "#true")
 (description "Boolean true [R7RS]")
 
+(id "u8(...)")
+(description "Bytevector [R7RS]")
+
+(id "vu8(...)")
+(description "Bytevector [R6RS]")
+
 (id "#x")
 (description "Hexadecimal integer [R2RS+]")

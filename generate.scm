@@ -190,6 +190,15 @@
                     (append (group-file 'id "library-name.scm")
                             (splice-implementations)))))))
 
+(define (library-name-scheme)
+  (registry
+   "Library names under (scheme ...)"
+   "library-name-scheme"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map the-usual (sort-by-id (group-file 'id "library-name-scheme.scm"))))))
+
 (define (character-name)
   (registry
    "#\\ character names"
@@ -319,6 +328,7 @@
       ,(machine)
       ,(feature)
       ,(library-name)
+      ,(library-name-scheme)
       ,(character-name)
       ,(hash-syntax)
       ,(hash-bang-syntax)

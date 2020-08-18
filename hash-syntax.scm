@@ -97,13 +97,13 @@
 (id "#true")
 (description "Boolean true [R7RS]")
 
-(id "u(...)")
+(id "#u(...)")
 (description "n-dimensional bytevector [s7]")
 
-(id "u8(...)")
+(id "#u8(...)")
 (description "Bytevector [R7RS]")
 
-(id "vu8(...)")
+(id "#vu8(...)")
 (description "Bytevector [R6RS]")
 
 (id "#x")

@@ -31,6 +31,9 @@
 (id "#<...>")
 (description "XML literal [SRFI 107]; Unreadable object [Gauche]")
 
+(id "#<<")
+(description "Multi-line string literal [Gambit]")
+
 (id "#<n>#")
 (description "Datum reference [R7RS]")
 

@@ -29,7 +29,7 @@
 (description "S-expression comment [R6RS, R7RS, SRFI 62]")
 
 (id "#<...>")
-(description "XML literal [SRFI 107]; Unreadable object [Gauche]")
+(description "XML literal [SRFI 107]; Unreadable object [Gambit, Gauche]")
 
 (id "#<<")
 (description "Multi-line string literal [Gambit]")

@@ -85,6 +85,9 @@
 (id "#i")
 (description "Inexact number [R2RS+]; n-dimensional integer vector [s7]")
 
+(id "#lang")
+(description "Declare which programming language is used [Racket]")
+
 (id "#o")
 (description "Octal integer [R2RS+]")
 

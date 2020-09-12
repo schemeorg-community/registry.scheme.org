@@ -278,6 +278,17 @@
            (append (the-usual entry) (list (assoc1 'type entry))))
          (group-file 'id "foreign-status-property.scm")))))
 
+(define (version-flag-property)
+  (registry
+   "Version flag properties"
+   "version-flag-property"
+   '(p)
+   (tabulate
+    '("ID" "Description" "Type")
+    (map (lambda (entry)
+           (append (the-usual entry) (list (assoc1 'type entry))))
+         (sort-by-id (group-file 'id "version-flag-property.scm"))))))
+
 (define (display-page)
   (display (string-append
             "<!doctype html>"
@@ -334,6 +345,7 @@
       ,(hash-bang-syntax)
       ,(filename-extension)
       ,(foreign-status-set)
-      ,(foreign-status-property)))))
+      ,(foreign-status-property)
+      ,(version-flag-property)))))
 
 (with-output-to-file "index.html" display-page)

@@ -98,6 +98,10 @@
 (description "STklos")
 (contact "Erick Gallesio")
 
+(id unsyntax)
+(description "Unsyntax")
+(contact "Marc Nieper-Wißkirchen")
+
 (id ypsilon)
 (description "Ypsilon")
 (contact "Yoshikatsu Fujita")

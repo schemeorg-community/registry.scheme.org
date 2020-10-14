@@ -6,6 +6,14 @@
 (role directive)
 (description "change to Chez Scheme read syntax")
 
+(id compatible)
+(role directive)
+(description "R6RS+R7RS+keywords compatible syntax [Sagittarius]")
+
+(id deprecated)
+(role directive)
+(description "display warning message of deprecated library [Sagittarius]")
+
 (id eof)
 (role object)
 (description "end-of-file object [Chez Scheme, Chicken, Gambit, Kawa]")
@@ -26,9 +34,17 @@
 (role directive)
 (description "implies #!no-fold-case and #!err5rs [Larceny]")
 
+(id nocache)
+(role directive)
+(description "disable cache on the current loading file [Sagittarius]")
+
 (id no-fold-case)
 (role directive)
 (description "change to case sensitive identifiers [R7RS]")
+
+(id no-overwrite)
+(role directive)
+(description "deny overwriting exported variables [Sagittarius]")
 
 (id null)
 (role object)
@@ -52,7 +68,15 @@
 
 (id r7rs)
 (role directive)
-(description "change to R7RS syntax with #!no-fold-case [Gauche, Larceny]")
+(description "change to R7RS syntax with #!no-fold-case [Gauche, Larceny, Sagittarius]")
+
+(id read-macro)
+(role directive)
+(description "#!read-macro=name is the same as #<name> [Sagittarius]")
+
+(id reader)
+(role directive)
+(description "#!reader=name replaces the reader with that library [Sagittarius]")
 
 (id rest)
 (role keyword)

@@ -48,7 +48,7 @@
 
 (id ".spi")
 (stands-for "Scheme package interface")
-(description "ScmPkg package definition file")
+(description "ScmPkg package definition file [Bigloo, STklos]")
 
 (id ".stk")
 (stands-for "STk")

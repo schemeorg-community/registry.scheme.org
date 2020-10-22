@@ -46,9 +46,17 @@
 (stands-for "Scheme infix")
 (description "Scheme + infix lexical syntax [Gambit]")
 
+(id ".spi")
+(stands-for "Scheme package interface")
+(description "ScmPkg package definition file")
+
 (id ".stk")
 (stands-for "STk")
 (description "Scheme code written in the STk/STklos dialect")
+
+(id ".ostk")
+(stands-for "Object STk")
+(description "Compiled STklos Scheme code")
 
 (id ".brl")
 (stands-for "Beautiful Report Language")

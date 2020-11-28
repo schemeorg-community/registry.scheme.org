@@ -259,30 +259,6 @@
                    ,(assoc1 'description entry))))
          (group-file 'id "filename-extension.scm")))))
 
-(define (foreign-status-set)
-  (registry
-   "Foreign status sets"
-   "foreign-status-set"
-   '(p)
-   (tabulate
-    '("ID" "Description" "Sample name" "Sample code")
-    (map (lambda (entry)
-           (append (the-usual entry)
-                   `((code ,(assoc1 'sample-name entry))
-                     (code ,(assoc1 'sample-code entry)))))
-         (sort-by-id (group-file 'id "foreign-status-set.scm"))))))
-
-(define (foreign-status-property)
-  (registry
-   "Foreign status properties"
-   "foreign-status-property"
-   '(p)
-   (tabulate
-    '("ID" "Description" "Type")
-    (map (lambda (entry)
-           (append (the-usual entry) (list (assoc1 'type entry))))
-         (group-file 'id "foreign-status-property.scm")))))
-
 (define (version-flag-property)
   (registry
    "Version flag properties"
@@ -349,8 +325,6 @@
       ,(hash-syntax)
       ,(hash-bang-syntax)
       ,(filename-extension)
-      ,(foreign-status-set)
-      ,(foreign-status-property)
       ,(version-flag-property)))))
 
 (with-output-to-file "index.html" display-page)

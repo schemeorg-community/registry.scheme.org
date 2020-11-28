@@ -1,3 +1,8 @@
+;; SPDX-License-Identifier: CC0-1.0
+
+;; For portability and ease of maintenance, please keep all Scheme
+;; code in this self-contained file and stick to R7RS-small. Thanks!
+
 (import (scheme base) (scheme char) (scheme file)
         (scheme read) (scheme write))
 

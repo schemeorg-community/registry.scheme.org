@@ -1,11 +1,3 @@
-(id dsssl)
-(description "Document Style Semantics and Specification Language (ISO/IEC 10179:1996)")
-(year 1996)
-
-(id ieee-1178-1990)
-(description "IEEE Standard for the Scheme Programming Language (1178-1990)")
-(year 1990)
-
 (id r0rs)
 (description "Scheme: An Interpreter for Extended Lambda Calculus (AI Memo No. 349)")
 (year 1975)
@@ -22,9 +14,17 @@
 (description "Revised^3 Report on the Algorithmic Language Scheme")
 (year 1986)
 
+(id ieee-1178-1990)
+(description "IEEE Standard for the Scheme Programming Language (1178-1990)")
+(year 1990)
+
 (id r4rs)
 (description "Revised^4 Report on the Algorithmic Language Scheme")
 (year 1991)
+
+(id dsssl)
+(description "Document Style Semantics and Specification Language (ISO/IEC 10179:1996)")
+(year 1996)
 
 (id r5rs)
 (description "Revised^5 Report on the Algorithmic Language Scheme")

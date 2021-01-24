@@ -42,6 +42,20 @@
   (let ((x (assoc key alist)))
     (if (and (list? x) (= 2 (length x))) (cadr x) (error "Nope"))))
 
+(define (superscripts s)
+  (let ((n (string-length s)))
+    (let loop ((a 0) (b 0) (acc '()))
+      (cond ((= n b a)
+             (reverse acc))
+            ((= n b)
+             (loop b b (cons (substring s a b) acc)))
+            ((char=? #\^ (string-ref s b))
+             (loop (+ b 2) (+ b 2)
+                   (append `((sup ,(string (string-ref s (+ b 1))))
+                             ,(substring s a b))
+                           acc)))
+            (else (loop a (+ b 1) acc))))))
+
 (define (display-sxml x)
   (define (display* . xs) (for-each display xs))
   (define (display-char char)
@@ -80,6 +94,9 @@
   (list-sort (lambda (a b) (string<? (assoc1 'id a) (assoc1 'id b)))
              entries))
 
+(define (format-description entry)
+  (superscripts (assoc1 'description entry)))
+
 (define (classify class entries)
   (map (lambda (entry) `((class ,class) ,@entry))
        entries))
@@ -94,7 +111,7 @@
                                                ,(string-append
                                                  "p-"
                                                  (string-downcase heading))))
-                                          ,column))
+                                          ,@column))
                                    (cdr row)
                                    column-headings)))
                      `(tr (@ (class ,(if class
@@ -105,8 +122,8 @@
 
 (define (the-usual entry)
   (cons (assoc? 'class entry)
-        `((code ,(symbol->string (assoc1 'id entry)))
-          ,(assoc1 'description entry))))
+        `(((code ,(symbol->string (assoc1 'id entry))))
+          ,(format-description entry))))
 
 (define (registry registry-title registry-id intro table)
   `(section
@@ -133,7 +150,7 @@
     (map (lambda (entry)
            (let ((year (assoc? 'year entry)))
              (append (the-usual entry)
-                     (list (if year (number->string year) "")))))
+                     (list (list (if year (number->string year) ""))))))
          (group-file 'id "scheme-standard.scm")))))
 
 (define (scheme-id)
@@ -145,7 +162,7 @@
    (tabulate
     '("ID" "Name" "Contact")
     (map (lambda (entry)
-           (append (the-usual entry) (list (assoc1 'contact entry))))
+           (append (the-usual entry) (list (list (assoc1 'contact entry)))))
          (sort-by-id (group-file 'id "scheme-id.scm"))))))
 
 (define (operating-system)
@@ -216,9 +233,9 @@
     '("ID" "Escape" "Description")
     (map (lambda (entry)
            (cons (assoc? 'class entry)
-                 `((code ,(symbol->string (assoc1 'id entry)))
-                   (code ,(or (assoc? 'string-escape entry) ""))
-                   ,(assoc1 'description entry))))
+                 `(((code ,(symbol->string (assoc1 'id entry))))
+                   ((code ,(or (assoc? 'string-escape entry) "")))
+                   ,(format-description entry))))
          (sort-by-id (group-file 'id "character-name.scm"))))))
 
 (define (hash-syntax)
@@ -230,8 +247,8 @@
     '("ID" "Description")
     (map (lambda (entry)
            (cons (assoc? 'class entry)
-                 `((code ,(assoc1 'id entry))
-                   ,(assoc1 'description entry))))
+                 `(((code ,(assoc1 'id entry)))
+                   ,(format-description entry))))
          (sort-by-string-id (group-file 'id "hash-syntax.scm"))))))
 
 (define (hash-bang-syntax)
@@ -243,9 +260,9 @@
     '("ID" "Role" "Description")
     (map (lambda (entry)
            (cons (assoc? 'class entry)
-                 `((code ,(symbol->string (assoc1 'id entry)))
-                   ,(symbol->string (assoc1 'role entry))
-                   ,(assoc1 'description entry))))
+                 `(((code ,(symbol->string (assoc1 'id entry))))
+                   (,(symbol->string (assoc1 'role entry)))
+                   ,(format-description entry))))
          (sort-by-id (group-file 'id "hash-bang-syntax.scm"))))))
 
 (define (filename-extension)
@@ -257,9 +274,9 @@
     '("Extension" "Stands for" "Description")
     (map (lambda (entry)
            (cons (assoc? 'class entry)
-                 `((code ,(assoc1 'id entry))
-                   ,(assoc1 'stands-for entry)
-                   ,(assoc1 'description entry))))
+                 `(((code ,(assoc1 'id entry)))
+                   (,(assoc1 'stands-for entry))
+                   ,(format-description entry))))
          (group-file 'id "filename-extension.scm")))))
 
 (define (version-flag-property)
@@ -270,7 +287,7 @@
    (tabulate
     '("ID" "Description" "Type")
     (map (lambda (entry)
-           (append (the-usual entry) (list (assoc1 'type entry))))
+           (append (the-usual entry) (list (list (assoc1 'type entry)))))
          (sort-by-id (group-file 'id "version-flag-property.scm"))))))
 
 (define (display-page)

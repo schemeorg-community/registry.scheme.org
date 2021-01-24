@@ -129,8 +129,11 @@
    "scheme-standard"
    '(p)
    (tabulate
-    '("ID" "Name")
-    (map the-usual
+    '("ID" "Name" "Year")
+    (map (lambda (entry)
+           (let ((year (assoc? 'year entry)))
+             (append (the-usual entry)
+                     (list (if year (number->string year) "")))))
          (sort-by-id (group-file 'id "scheme-standard.scm"))))))
 
 (define (scheme-id)

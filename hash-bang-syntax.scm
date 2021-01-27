@@ -28,7 +28,7 @@
 
 (id key)
 (role keyword)
-(description "start keyword arguments in lambda list [DSSSL]")
+(description "start keyword arguments in lambda list [DSSSL, SRFI 89]")
 
 (id larceny)
 (role directive)
@@ -52,7 +52,7 @@
 
 (id optional)
 (role keyword)
-(description "start optional arguments in lambda list [DSSSL]")
+(description "start optional arguments in lambda list [SRFI 89]")
 
 (id err5rs)
 (role directive)
@@ -80,7 +80,7 @@
 
 (id rest)
 (role keyword)
-(description "start rest argument in lambda list [DSSSL]")
+(description "start rest argument in lambda list [SRFI 89]")
 
 (id true)
 (role object)

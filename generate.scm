@@ -32,15 +32,17 @@
 (define (group-file head filename)
   (group head (with-input-from-file filename read-all)))
 
+(define (no-key key) (error "No key:" key))
+
 (define (assoc? key alist)
   (let ((x (assoc key alist)))
     (cond ((not x) #f)
           ((and (list? x) (= 2 (length x))) (cadr x))
-          (else (error "Nope")))))
+          (else (no-key key)))))
 
 (define (assoc1 key alist)
   (let ((x (assoc key alist)))
-    (if (and (list? x) (= 2 (length x))) (cadr x) (error "Nope"))))
+    (if (and (list? x) (= 2 (length x))) (cadr x) (no-key key))))
 
 (define (superscripts s)
   (let ((n (string-length s)))

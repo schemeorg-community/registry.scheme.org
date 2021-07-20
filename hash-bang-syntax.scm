@@ -52,7 +52,7 @@
 
 (id optional)
 (role keyword)
-(description "start optional arguments in lambda list [SRFI 89]")
+(description "start optional arguments in lambda list [SRFI 89, MIT Scheme]")
 
 (id err5rs)
 (role directive)
@@ -80,7 +80,7 @@
 
 (id rest)
 (role keyword)
-(description "start rest argument in lambda list [SRFI 89]")
+(description "start rest argument in lambda list [SRFI 89, MIT Scheme]")
 
 (id true)
 (role object)

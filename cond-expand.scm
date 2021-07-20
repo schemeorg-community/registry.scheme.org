@@ -15,5 +15,5 @@
 (description "True iif library name is importable. [R7RS]")
 
 (id compilation-target)
-(args ...)
-(description "[Gambit]")
+(args target ...)
+(description "True iif at least one target is supported. [Gambit]")

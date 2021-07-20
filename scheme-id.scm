@@ -106,6 +106,10 @@
 (description "Unsyntax")
 (contact "Marc Nieper-Wißkirchen")
 
+(id vicare)
+(description "Vicare")
+(contact "Marco Maggi")
+
 (id ypsilon)
 (description "Ypsilon")
 (contact "Yoshikatsu Fujita")

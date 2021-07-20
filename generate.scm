@@ -19,6 +19,8 @@
     (let ((x (read)))
       (if (eof-object? x) (reverse xs) (loop (cons x xs))))))
 
+(define (append-map f xs) (apply append (map f xs)))
+
 (define (group head xs)
   (define (eject gs g) (if (null? g) gs (cons (reverse g) gs)))
   (let loop ((xs xs) (gs '()) (g '()))
@@ -206,6 +208,24 @@
                                        (splice-operating-systems)
                                        (splice-machines)))))))
 
+(define (cond-expand-test)
+  (registry
+   "Tests cond-expand can do"
+   "cond-expand"
+   '(p)
+   (tabulate
+    '("ID" "Description")
+    (map (lambda (entry)
+           (cons (assoc? 'class entry)
+                 `(((code
+                     "("
+                     ,(symbol->string (assoc1 'id entry))
+                     ,@(append-map (lambda (arg) `(" " ,(symbol->string arg)))
+                                   (cdr (assoc 'args entry)))
+                     ")"))
+                   ,(format-description entry))))
+         (sort-by-id (group-file 'id "cond-expand.scm"))))))
+
 (define (library-name)
   (registry
    "Library name prefixes"
@@ -341,6 +361,7 @@
       ,(operating-system)
       ,(machine)
       ,(feature)
+      ,(cond-expand-test)
       ,(library-name)
       ,(library-name-scheme)
       ,(character-name)

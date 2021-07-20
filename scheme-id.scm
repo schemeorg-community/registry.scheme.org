@@ -98,6 +98,10 @@
 (description "STklos")
 (contact "Erick Gallesio")
 
+(id tinyscheme)
+(description "TinyScheme")
+(contact "Dimitrios Souflis")
+
 (id unsyntax)
 (description "Unsyntax")
 (contact "Marc Nieper-Wißkirchen")

@@ -4,6 +4,9 @@
 (id "#\"...\"")
 (description "Interpolated string [Gauche]")
 
+(id "#${...}")
+(description "Binary blob [Chicken]")
+
 (id "#'")
 (description "Syntax datum [R6RS, syntax-case]")
 

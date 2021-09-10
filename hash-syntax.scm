@@ -16,6 +16,9 @@
 (id "#*\"...\"")
 (description "Incomplete string [Gauche]")
 
+(id "#+")
+(description "Read-time conditional [Chicken]")
+
 (id "#,")
 (description "unsyntax [R6RS, syntax-case]; Reader constructor [SRFI 10]")
 

@@ -67,6 +67,9 @@
 (id "#b")
 (description "Binary integer [R2RS+]")
 
+(id "#c<n>(...)")
+(description "n-bit complex vector [SRFI 160: n = 64, 128]")
+
 (id "#ci")
 (description "Change to case insensitive identifiers [Chicken]")
 
@@ -84,6 +87,9 @@
 
 (id "#f")
 (description "Boolean false [R3RS+]")
+
+(id "#f<n>(...)")
+(description "n-bit float vector [SRFI 4, 160: n = 32, 64]")
 
 (id "#false")
 (description "Boolean false [R7RS]")
@@ -103,6 +109,9 @@
 (id "#<n>r")
 (description "Number in radix n [Chez Scheme]")
 
+(id "#s<n>(...)")
+(description "n-bit signed integer vector [SRFI 4, 160: n = 8, 16, 32, 64]")
+
 (id "#t")
 (description "Boolean true [R3RS+]")
 
@@ -111,6 +120,9 @@
 
 (id "#u(...)")
 (description "n-dimensional bytevector [s7]")
+
+(id "#u<n>(...)")
+(description "n-bit unsigned integer vector [SRFI 4, 160: n = 8, 16, 32, 64]")
 
 (id "#u8(...)")
 (description "Bytevector [R7RS]")

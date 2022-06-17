@@ -100,6 +100,9 @@
 (id "#i")
 (description "Inexact number [R2RS+]")
 
+(id "#i<n>d(...)")
+(description "n-dimensional signed integer array [s7]")
+
 (id "#lang")
 (description "Declare which programming language is used [Racket]")
 
@@ -110,6 +113,9 @@
 (description "Number in radix n [Chez Scheme]")
 
 (id "#<n>r(...)")
+(description "n-dimensional real (i.e. float) array [s7]")
+
+(id "#r<n>d(...)")
 (description "n-dimensional real (i.e. float) array [s7]")
 
 (id "#s<n>(...)")
@@ -126,6 +132,9 @@
 
 (id "#u<n>(...)")
 (description "n-bit unsigned integer vector [SRFI 4, 160: n = 8, 16, 32, 64]")
+
+(id "#u<n>d(...)")
+(description "n-dimensional byte array [s7]")
 
 (id "#u8(...)")
 (description "Bytevector [R7RS]")

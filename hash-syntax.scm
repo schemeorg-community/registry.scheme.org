@@ -127,6 +127,9 @@
 (id "#u8(...)")
 (description "Bytevector [R7RS]")
 
+(id "#u8\"...\"")
+(description "String-notated bytevector [SRFI 207]")
+
 (id "#vu8(...)")
 (description "Bytevector [R6RS]")
 

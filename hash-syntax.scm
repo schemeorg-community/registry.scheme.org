@@ -76,11 +76,11 @@
 (id "#cs")
 (description "Change to case sensitive identifiers [Chicken]")
 
+(id "#<n>d(...)")
+(description "n-dimensional array [s7]")
+
 (id "#d")
 (description "Decimal number [R2RS+]")
-
-(id "#<n>d")
-(description "n-dimensional vector [s7]")
 
 (id "#e")
 (description "Exact number [R2RS+]")
@@ -94,8 +94,11 @@
 (id "#false")
 (description "Boolean false [R7RS]")
 
+(id "#<n>i(...)")
+(description "n-dimensional signed integer array [s7]")
+
 (id "#i")
-(description "Inexact number [R2RS+]; n-dimensional integer vector [s7]")
+(description "Inexact number [R2RS+]")
 
 (id "#lang")
 (description "Declare which programming language is used [Racket]")
@@ -103,11 +106,11 @@
 (id "#o")
 (description "Octal integer [R2RS+]")
 
-(id "#r")
-(description "n-dimensional real (i.e. float) vector [s7]")
-
 (id "#<n>r")
 (description "Number in radix n [Chez Scheme]")
+
+(id "#<n>r(...)")
+(description "n-dimensional real (i.e. float) array [s7]")
 
 (id "#s<n>(...)")
 (description "n-bit signed integer vector [SRFI 4, 160: n = 8, 16, 32, 64]")
@@ -118,8 +121,8 @@
 (id "#true")
 (description "Boolean true [R7RS]")
 
-(id "#u(...)")
-(description "n-dimensional bytevector [s7]")
+(id "#<n>u(...)")
+(description "n-dimensional byte array [s7]")
 
 (id "#u<n>(...)")
 (description "n-bit unsigned integer vector [SRFI 4, 160: n = 8, 16, 32, 64]")

@@ -271,7 +271,7 @@
            (cons (assoc? 'class entry)
                  `(((code ,(assoc1 'id entry)))
                    ,(format-description entry))))
-         (sort-by-string-id (group-file 'id "hash-syntax.scm"))))))
+         (group-file 'id "hash-syntax.scm")))))
 
 (define (hash-bang-syntax)
   (registry

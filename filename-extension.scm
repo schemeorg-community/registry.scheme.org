@@ -65,3 +65,31 @@
 (id ".krl")
 (stands-for "Kawa Report Language")
 (description "Text document in KRL [Kawa]")
+
+(id ".bin")
+(stands-for "Binary")
+(description "SCode compiled source file [MIT Scheme]")
+
+(id ".binld")
+(stands-for "Binary library definition")
+(description "SCode compiled R7RS library [MIT Scheme]")
+
+(id ".com")
+(stands-for "Compiled")
+(description "Native code compiled source file [MIT Scheme]")
+
+(id ".comld")
+(stands-for "Compiled library definition")
+(description "Native code compiled R7RS library [MIT Scheme]")
+
+(id ".ext")
+(stands-for "Extension")
+(description "Auxiliary for native code compiled source file [MIT Scheme]")
+
+(id ".bci")
+(stands-for "Binary compiler info")
+(description "Auxiliary for native code compiled source file [MIT Scheme]")
+
+(id ".bcild")
+(stands-for "Binary compiler info, library definition")
+(description "Auxiliary for native code compiled R7RS library [MIT Scheme]")

@@ -54,6 +54,10 @@
 (stands-for "STk")
 (description "Scheme code written in the STk/STklos dialect")
 
+(id ".stklos")
+(stands-for "STklos")
+(description "Scheme code written in the STklos dialect")
+
 (id ".ostk")
 (stands-for "Object STk")
 (description "Compiled STklos Scheme code")

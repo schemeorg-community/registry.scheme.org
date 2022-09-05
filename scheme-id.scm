@@ -66,6 +66,10 @@
 (description "MIT Scheme")
 (contact "Chris Hanson")
 
+(id mosh)
+(description "Mosh")
+(contact "Taro Minowa (Higepon)")
+
 (id mzscheme)
 (description "MzScheme")
 (contact "Matthew Flatt")

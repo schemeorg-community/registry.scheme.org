@@ -4,6 +4,9 @@
 (id "#\"...\"")
 (description "Interpolated string [Gauche]")
 
+(id "#{...}")
+(description "gensyms [Chez Scheme]")
+
 (id "#${...}")
 (description "Binary blob [Chicken]")
 

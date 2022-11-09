@@ -53,7 +53,7 @@
 (description "Debug macro [Gauche]")
 
 (id "#[...]")
-(description "Character set [Gauche]")
+(description "Character set [Gauche], Records [Chez Scheme]")
 
 (id "#\\")
 (description "Literal character [R2RS+]")

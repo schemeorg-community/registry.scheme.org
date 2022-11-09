@@ -296,7 +296,7 @@
   (registry
    "Version flag properties"
    "version-flag-property"
-   '(p)
+   '(p "SRFI 176")
    (tabulate
     '("ID" "Description" "Type")
     (map (lambda (entry)

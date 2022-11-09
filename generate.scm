@@ -254,8 +254,9 @@
   (registry
    "# lexical syntax"
    "hash-syntax"
-   '(p "A quote ' next to an implementation's name"
-       " means the syntax must be quoted in that implementation.")
+   '(p "A quote ' next to a standard's or implementation's name"
+       " means the syntax does not yield a self-evaluating object"
+       " there, and must be quoted to form a valid expression.")
    (tabulate
     '("ID" "Description")
     (map (lambda (entry)

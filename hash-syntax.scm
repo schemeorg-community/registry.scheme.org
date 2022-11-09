@@ -5,7 +5,7 @@
 (description "Interpolated string [Gauche]")
 
 (id "#{...}")
-(description "gensyms [Chez Scheme]")
+(description "Gensym [Chez Scheme]")
 
 (id "#${...}")
 (description "Binary blob [Chicken]")
@@ -53,7 +53,7 @@
 (description "Debug macro [Gauche]")
 
 (id "#[...]")
-(description "Character set [Gauche], Records [Chez Scheme]")
+(description "Character set [Gauche], Record [Chez Scheme]")
 
 (id "#\\")
 (description "Literal character [R2RS+]")

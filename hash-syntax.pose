@@ -10,6 +10,9 @@
 ((id "#${...}")
  (description "Binary blob [Chicken]"))
 
+((id "#&...")
+ (description "Box [Racket]"))
+
 ((id "#'")
  (description "Syntax datum [R6RS, syntax-case]"))
 

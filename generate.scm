@@ -143,7 +143,7 @@
            (let ((year (assoc? 'year entry)))
              (append (the-usual entry)
                      (list (list (if year (number->string year) ""))))))
-         (read-all-from-file "scheme-standard.scm")))))
+         (read-all-from-file "scheme-standard.pose")))))
 
 (define (scheme-id)
   (registry
@@ -155,7 +155,7 @@
     '("ID" "Name" "Contact")
     (map (lambda (entry)
            (append (the-usual entry) (list (list (assoc1 'contact entry)))))
-         (sort-by-id (read-all-from-file "scheme-id.scm"))))))
+         (sort-by-id (read-all-from-file "scheme-id.pose"))))))
 
 (define (operating-system)
   (registry
@@ -164,7 +164,8 @@
    '(p)
    (tabulate
     '("ID" "Description")
-    (map the-usual (sort-by-id (read-all-from-file "operating-system.scm"))))))
+    (map the-usual
+         (sort-by-id (read-all-from-file "operating-system.pose"))))))
 
 (define (machine)
   (registry
@@ -173,16 +174,16 @@
    '(p)
    (tabulate
     '("ID" "Description")
-    (map the-usual (sort-by-id (read-all-from-file "machine.scm"))))))
+    (map the-usual (sort-by-id (read-all-from-file "machine.pose"))))))
 
 (define (splice-implementations)
-  (classify "red" (read-all-from-file "scheme-id.scm")))
+  (classify "red" (read-all-from-file "scheme-id.pose")))
 
 (define (splice-operating-systems)
-  (classify "green" (read-all-from-file "operating-system.scm")))
+  (classify "green" (read-all-from-file "operating-system.pose")))
 
 (define (splice-machines)
-  (classify "blue" (read-all-from-file "machine.scm")))
+  (classify "blue" (read-all-from-file "machine.pose")))
 
 (define (feature)
   (registry
@@ -191,7 +192,7 @@
    '(p)
    (tabulate
     '("ID" "Description")
-    (map the-usual (sort-by-id (append (read-all-from-file "features.scm")
+    (map the-usual (sort-by-id (append (read-all-from-file "features.pose")
                                        (splice-implementations)
                                        (splice-operating-systems)
                                        (splice-machines)))))))
@@ -212,7 +213,7 @@
                                    (cdr (assoc 'args entry)))
                      ")"))
                    ,(format-description entry))))
-         (sort-by-id (read-all-from-file "cond-expand.scm"))))))
+         (sort-by-id (read-all-from-file "cond-expand.pose"))))))
 
 (define (library-name)
   (registry
@@ -222,7 +223,7 @@
    (tabulate
     '("ID" "Description")
     (map the-usual (sort-by-id
-                    (append (read-all-from-file "library-name.scm")
+                    (append (read-all-from-file "library-name.pose")
                             (splice-implementations)))))))
 
 (define (library-name-scheme)
@@ -232,7 +233,8 @@
    '(p)
    (tabulate
     '("ID" "Description")
-    (map the-usual (sort-by-id (read-all-from-file "library-name-scheme.scm"))))))
+    (map the-usual
+         (sort-by-id (read-all-from-file "library-name-scheme.pose"))))))
 
 (define (character-name)
   (registry
@@ -246,7 +248,7 @@
                  `(((code ,(assoc1 'id entry)))
                    ((code ,(or (assoc? 'string-escape entry) "")))
                    ,(format-description entry))))
-         (sort-by-id (read-all-from-file "character-name.scm"))))))
+         (sort-by-id (read-all-from-file "character-name.pose"))))))
 
 (define (hash-syntax)
   (registry
@@ -259,7 +261,7 @@
            (cons (assoc? 'class entry)
                  `(((code ,(assoc1 'id entry)))
                    ,(format-description entry))))
-         (read-all-from-file "hash-syntax.scm")))))
+         (read-all-from-file "hash-syntax.pose")))))
 
 (define (hash-bang-syntax)
   (registry
@@ -273,7 +275,7 @@
                  `(((code ,(assoc1 'id entry)))
                    (,(symbol->string (assoc1 'role entry)))
                    ,(format-description entry))))
-         (sort-by-id (read-all-from-file "hash-bang-syntax.scm"))))))
+         (sort-by-id (read-all-from-file "hash-bang-syntax.pose"))))))
 
 (define (filename-extension)
   (registry
@@ -287,7 +289,7 @@
                  `(((code ,(assoc1 'id entry)))
                    (,(assoc1 'stands-for entry))
                    ,(format-description entry))))
-         (read-all-from-file "filename-extension.scm")))))
+         (read-all-from-file "filename-extension.pose")))))
 
 (define (version-flag-property)
   (registry
@@ -298,7 +300,7 @@
     '("ID" "Description" "Type")
     (map (lambda (entry)
            (append (the-usual entry) (list (list (assoc1 'type entry)))))
-         (sort-by-id (read-all-from-file "version-flag-property.scm"))))))
+         (sort-by-id (read-all-from-file "version-flag-property.pose"))))))
 
 (define (display-page)
   (display (string-append

@@ -1,0 +1,25 @@
+((id "crystal")
+ (title "Crystal Scheme")
+ (contact "Christian Queinnec"))
+
+((id "kali")
+ (title "Kali Scheme")
+ (contact "Richard Kelsey")
+ (contact "Jonathan Rees"))
+
+((id "mul-t")
+ (title "Mul-T")
+ (contact "David Kranz")
+ (contact "Robert Halstead"))
+
+((id "multilisp")
+ (title "Multilisp")
+ (contact "Robert Halstead"))
+
+((id "multischeme")
+ (title "MultiScheme")
+ (contact "James Miller"))
+
+((id "polyscheme")
+ (title "PolyScheme")
+ (contact "Christian Queinnec"))

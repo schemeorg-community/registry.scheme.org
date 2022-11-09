@@ -14,7 +14,7 @@
  (description "Box ['Chez, 'Gambit, Racket]"))
 
 ((id "#'")
- (description "Syntax datum [R6RS, syntax-case]"))
+ (description "syntax [R6RS, syntax-case]"))
 
 ((id "#(...)")
  (description "Vector [R7RS]"))

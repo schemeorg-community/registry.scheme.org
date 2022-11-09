@@ -1,152 +1,152 @@
-(id "#!")
-(description "Identifier follows [R6RS+]; Unix script [SRFI 22]; #! ... !# comment [Guile]")
+((id "#!")
+ (description "Identifier follows [R6RS+]; Unix script [SRFI 22]; #! ... !# comment [Guile]"))
 
-(id "#\"...\"")
-(description "Interpolated string [Gauche]")
+((id "#\"...\"")
+ (description "Interpolated string [Gauche]"))
 
-(id "#{...}")
-(description "Gensym [Chez Scheme]")
+((id "#{...}")
+ (description "Gensym [Chez Scheme]"))
 
-(id "#${...}")
-(description "Binary blob [Chicken]")
+((id "#${...}")
+ (description "Binary blob [Chicken]"))
 
-(id "#'")
-(description "Syntax datum [R6RS, syntax-case]")
+((id "#'")
+ (description "Syntax datum [R6RS, syntax-case]"))
 
-(id "#(...)")
-(description "Vector [R7RS]")
+((id "#(...)")
+ (description "Vector [R7RS]"))
 
-(id "#*\"...\"")
-(description "Incomplete string [Gauche]")
+((id "#*\"...\"")
+ (description "Incomplete string [Gauche]"))
 
-(id "#+")
-(description "Read-time conditional [Chicken]")
+((id "#+")
+ (description "Read-time conditional [Chicken]"))
 
-(id "#,")
-(description "unsyntax [R6RS, syntax-case]; Reader constructor [SRFI 10]")
+((id "#,")
+ (description "unsyntax [R6RS, syntax-case]; Reader constructor [SRFI 10]"))
 
-(id "#,@")
-(description "unsyntax-splicing [R6RS, syntax-case]")
+((id "#,@")
+ (description "unsyntax-splicing [R6RS, syntax-case]"))
 
-(id "#/.../")
-(description "Regular expression [Gauche]")
+((id "#/.../")
+ (description "Regular expression [Gauche]"))
 
-(id "#:")
-(description "Keyword object [Chicken, Guile, s7]; Keyword marker [Kawa, Racket]; Uninterned symbol [Gauche]")
+((id "#:")
+ (description "Keyword object [Chicken, Guile, s7]; Keyword marker [Kawa, Racket]; Uninterned symbol [Gauche]"))
 
-(id "#;")
-(description "S-expression comment [R6RS, R7RS, SRFI 62]")
+((id "#;")
+ (description "S-expression comment [R6RS, R7RS, SRFI 62]"))
 
-(id "#<...>")
-(description "XML literal [SRFI 107]; Unreadable object [Gambit, Gauche]; import reader macro from this library [Sagittarius]")
+((id "#<...>")
+ (description "XML literal [SRFI 107]; Unreadable object [Gambit, Gauche]; import reader macro from this library [Sagittarius]"))
 
-(id "#<<")
-(description "Multi-line string literal [Gambit]")
+((id "#<<")
+ (description "Multi-line string literal [Gambit]"))
 
-(id "#<n>#")
-(description "Datum reference [R7RS]")
+((id "#<n>#")
+ (description "Datum reference [R7RS]"))
 
-(id "#<n>=")
-(description "Datum label [R7RS]")
+((id "#<n>=")
+ (description "Datum label [R7RS]"))
 
-(id "#?")
-(description "Debug macro [Gauche]")
+((id "#?")
+ (description "Debug macro [Gauche]"))
 
-(id "#[...]")
-(description "Character set [Gauche], Record [Chez Scheme]")
+((id "#[...]")
+ (description "Character set [Gauche], Record [Chez Scheme]"))
 
-(id "#\\")
-(description "Literal character [R2RS+]")
+((id "#\\")
+ (description "Literal character [R2RS+]"))
 
-(id "#`")
-(description "quasisyntax [R6RS, syntax-case]; legacy interpolated string [Gauche]")
+((id "#`")
+ (description "quasisyntax [R6RS, syntax-case]; legacy interpolated string [Gauche]"))
 
-(id "#|...|#")
-(description "Block comment [R6RS, R7RS, SRFI 30]")
+((id "#|...|#")
+ (description "Block comment [R6RS, R7RS, SRFI 30]"))
 
-(id "#a")
-(description "Array [SRFI 58, SRFI 163]")
+((id "#a")
+ (description "Array [SRFI 58, SRFI 163]"))
 
-(id "#b")
-(description "Binary integer [R2RS+]")
+((id "#b")
+ (description "Binary integer [R2RS+]"))
 
-(id "#c<n>(...)")
-(description "n-bit complex vector [SRFI 160: n = 64, 128]")
+((id "#c<n>(...)")
+ (description "n-bit complex vector [SRFI 160: n = 64, 128]"))
 
-(id "#ci")
-(description "Change to case insensitive identifiers [Chicken]")
+((id "#ci")
+ (description "Change to case insensitive identifiers [Chicken]"))
 
-(id "#cs")
-(description "Change to case sensitive identifiers [Chicken]")
+((id "#cs")
+ (description "Change to case sensitive identifiers [Chicken]"))
 
-(id "#<n>d(...)")
-(description "n-dimensional array [s7]")
+((id "#<n>d(...)")
+ (description "n-dimensional array [s7]"))
 
-(id "#d")
-(description "Decimal number [R2RS+]")
+((id "#d")
+ (description "Decimal number [R2RS+]"))
 
-(id "#e")
-(description "Exact number [R2RS+]")
+((id "#e")
+ (description "Exact number [R2RS+]"))
 
-(id "#f")
-(description "Boolean false [R3RS+]")
+((id "#f")
+ (description "Boolean false [R3RS+]"))
 
-(id "#f<n>(...)")
-(description "n-bit float vector [SRFI 4, 160: n = 32, 64]")
+((id "#f<n>(...)")
+ (description "n-bit float vector [SRFI 4, 160: n = 32, 64]"))
 
-(id "#false")
-(description "Boolean false [R7RS]")
+((id "#false")
+ (description "Boolean false [R7RS]"))
 
-(id "#<n>i(...)")
-(description "n-dimensional signed integer array [s7]")
+((id "#<n>i(...)")
+ (description "n-dimensional signed integer array [s7]"))
 
-(id "#i")
-(description "Inexact number [R2RS+]")
+((id "#i")
+ (description "Inexact number [R2RS+]"))
 
-(id "#i<n>d(...)")
-(description "n-dimensional signed integer array [s7]")
+((id "#i<n>d(...)")
+ (description "n-dimensional signed integer array [s7]"))
 
-(id "#lang")
-(description "Declare which programming language is used [Racket]")
+((id "#lang")
+ (description "Declare which programming language is used [Racket]"))
 
-(id "#o")
-(description "Octal integer [R2RS+]")
+((id "#o")
+ (description "Octal integer [R2RS+]"))
 
-(id "#<n>r")
-(description "Number in radix n [Chez Scheme]")
+((id "#<n>r")
+ (description "Number in radix n [Chez Scheme]"))
 
-(id "#<n>r(...)")
-(description "n-dimensional real (i.e. float) array [s7]")
+((id "#<n>r(...)")
+ (description "n-dimensional real (i.e. float) array [s7]"))
 
-(id "#r<n>d(...)")
-(description "n-dimensional real (i.e. float) array [s7]")
+((id "#r<n>d(...)")
+ (description "n-dimensional real (i.e. float) array [s7]"))
 
-(id "#s<n>(...)")
-(description "n-bit signed integer vector [SRFI 4, 160: n = 8, 16, 32, 64]")
+((id "#s<n>(...)")
+ (description "n-bit signed integer vector [SRFI 4, 160: n = 8, 16, 32, 64]"))
 
-(id "#t")
-(description "Boolean true [R3RS+]")
+((id "#t")
+ (description "Boolean true [R3RS+]"))
 
-(id "#true")
-(description "Boolean true [R7RS]")
+((id "#true")
+ (description "Boolean true [R7RS]"))
 
-(id "#<n>u(...)")
-(description "n-dimensional byte array [s7]")
+((id "#<n>u(...)")
+ (description "n-dimensional byte array [s7]"))
 
-(id "#u<n>(...)")
-(description "n-bit unsigned integer vector [SRFI 4, 160: n = 8, 16, 32, 64]")
+((id "#u<n>(...)")
+ (description "n-bit unsigned integer vector [SRFI 4, 160: n = 8, 16, 32, 64]"))
 
-(id "#u<n>d(...)")
-(description "n-dimensional byte array [s7]")
+((id "#u<n>d(...)")
+ (description "n-dimensional byte array [s7]"))
 
-(id "#u8(...)")
-(description "Bytevector [R7RS]")
+((id "#u8(...)")
+ (description "Bytevector [R7RS]"))
 
-(id "#u8\"...\"")
-(description "String-notated bytevector [SRFI 207]")
+((id "#u8\"...\"")
+ (description "String-notated bytevector [SRFI 207]"))
 
-(id "#vu8(...)")
-(description "Bytevector [R6RS]")
+((id "#vu8(...)")
+ (description "Bytevector [R6RS]"))
 
-(id "#x")
-(description "Hexadecimal integer [R2RS+]")
+((id "#x")
+ (description "Hexadecimal integer [R2RS+]"))

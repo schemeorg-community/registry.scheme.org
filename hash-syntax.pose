@@ -11,7 +11,7 @@
  (description "Binary blob [Chicken]"))
 
 ((id "#&...")
- (description "Box [Gambit, Racket]"))
+ (description "Box ['Chez, 'Gambit, Racket]"))
 
 ((id "#'")
  (description "Syntax datum [R6RS, syntax-case]"))

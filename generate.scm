@@ -316,7 +316,8 @@
   (registry
    "Version properties"
    "version-properties"
-   '(p "SRFI 176")
+   '(p (a (@ (href "https://srfi.schemers.org/srfi-176/"))
+          "SRFI 176"))
    (tabulate
     '("ID" "Description" "Type")
     (map (lambda (entry)

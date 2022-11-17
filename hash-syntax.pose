@@ -1,3 +1,6 @@
+((id "#<n>")
+ (description "Object by serial number [Chicken, Gambit]"))
+
 ((id "#!")
  (description "Identifier follows [R6RS+]; Unix script [SRFI 22]; #! ... !# comment [Guile]"))
 

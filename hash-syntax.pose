@@ -41,7 +41,7 @@
  (description "S-expression comment [R6RS, R7RS, SRFI 62]"))
 
 ((id "#<...>")
- (description "XML literal [SRFI 107]; Unreadable object [Gambit, Gauche]; import reader macro from this library [Sagittarius]"))
+ (description "Unreadable object [Chez Scheme, Chibi-Scheme, Chicken, Gambit, Gauche, Kawa, Mosh, Sagittarius]; XML literal [SRFI 107]; import reader macro from this library [Sagittarius]"))
 
 ((id "#<<")
  (description "Multi-line string literal [Gambit]"))

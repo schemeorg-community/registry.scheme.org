@@ -274,7 +274,7 @@
     '("ID" "Role" "Description")
     (map (lambda (entry)
            (cons (assoc? 'class entry)
-                 `(((code ,(assoc1 'id entry)))
+                 `(((code "#!" ,(assoc1 'id entry)))
                    (,(symbol->string (assoc1 'role entry)))
                    ,(format-description entry))))
          (sort-by-id (read-all-from-file "hash-bang-syntax.pose"))))))

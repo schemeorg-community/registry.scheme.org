@@ -117,25 +117,39 @@
         `(((code ,(assoc1 'id entry)))
           ,(format-description entry))))
 
+(define registry-old-ids
+  '(("character-names" "character-name")
+    ("filename-extensions" "filename-extension")
+    ("library-names" "library-name")
+    ("library-names-scheme" "library-name-scheme")
+    ("machines" "machine")
+    ("operating-systems" "operating-system")
+    ("scheme-standards" "scheme-standard")
+    ("version-properties" "version-flag-property")))
+
 (define (registry registry-title registry-id intro table)
   `(section
     (@ (class "h-x-registry")
        (data-p-id ,registry-id))
+    ,@(map (lambda (old-id) `(span (@ (id ,old-id))))
+           (let ((entry (assoc registry-id registry-old-ids)))
+             (if entry (cdr entry) '())))
     (h2 (@ (class "p-title") (id ,registry-id))
         ,registry-title)
-    (p "Registry ID: " (a (@ (class "registry-anchor")
-                             (href ,(string-append "#" registry-id)))
-                          (code (@ (class "p-id"))
-                                ,registry-id)))
+    (p "Registry ID: "
+       (a (@ (class "registry-anchor")
+             (href ,(string-append "#" registry-id)))
+          (code (@ (class "p-id"))
+                ,registry-id)))
     ,intro
     ,table))
 
 ;;
 
-(define (scheme-standard)
+(define (scheme-standards-registry)
   (registry
    "Scheme standards"
-   "scheme-standard"
+   "scheme-standards"
    '(p)
    (tabulate
     '("ID" "Name" "Year")
@@ -143,9 +157,9 @@
            (let ((year (assoc? 'year entry)))
              (append (the-usual entry)
                      (list (list (if year (number->string year) ""))))))
-         (read-all-from-file "scheme-standard.pose")))))
+         (read-all-from-file "scheme-standards.pose")))))
 
-(define (scheme-id)
+(define (scheme-id-registry)
   (registry
    "Scheme implementations"
    "scheme-id"
@@ -157,35 +171,35 @@
            (append (the-usual entry) (list (list (assoc1 'contact entry)))))
          (sort-by-id (read-all-from-file "scheme-id.pose"))))))
 
-(define (operating-system)
+(define (operating-systems-registry)
   (registry
    "Operating systems"
-   "operating-system"
+   "operating-systems"
    '(p)
    (tabulate
     '("ID" "Description")
     (map the-usual
-         (sort-by-id (read-all-from-file "operating-system.pose"))))))
+         (sort-by-id (read-all-from-file "operating-systems.pose"))))))
 
-(define (machine)
+(define (machines-registry)
   (registry
    "Machines"
-   "machine"
+   "machines"
    '(p)
    (tabulate
     '("ID" "Description")
-    (map the-usual (sort-by-id (read-all-from-file "machine.pose"))))))
+    (map the-usual (sort-by-id (read-all-from-file "machines.pose"))))))
 
 (define (splice-implementations)
   (classify "red" (read-all-from-file "scheme-id.pose")))
 
 (define (splice-operating-systems)
-  (classify "green" (read-all-from-file "operating-system.pose")))
+  (classify "green" (read-all-from-file "operating-systems.pose")))
 
 (define (splice-machines)
-  (classify "blue" (read-all-from-file "machine.pose")))
+  (classify "blue" (read-all-from-file "machines.pose")))
 
-(define (feature)
+(define (features-registry)
   (registry
    "Feature identifiers"
    "features"
@@ -197,7 +211,7 @@
                                        (splice-operating-systems)
                                        (splice-machines)))))))
 
-(define (cond-expand-test)
+(define (cond-expand-registry)
   (registry
    "Tests cond-expand can do"
    "cond-expand"
@@ -215,31 +229,31 @@
                    ,(format-description entry))))
          (sort-by-id (read-all-from-file "cond-expand.pose"))))))
 
-(define (library-name)
+(define (library-names-registry)
   (registry
    "Library name prefixes"
-   "library-name"
+   "library-names"
    '(p)
    (tabulate
     '("ID" "Description")
     (map the-usual (sort-by-id
-                    (append (read-all-from-file "library-name.pose")
+                    (append (read-all-from-file "library-names.pose")
                             (splice-implementations)))))))
 
-(define (library-name-scheme)
+(define (library-names-scheme-registry)
   (registry
    "Library names under (scheme ...)"
-   "library-name-scheme"
+   "library-names-scheme"
    '(p)
    (tabulate
     '("ID" "Description")
     (map the-usual
-         (sort-by-id (read-all-from-file "library-name-scheme.pose"))))))
+         (sort-by-id (read-all-from-file "library-names-scheme.pose"))))))
 
-(define (character-name)
+(define (character-names-registry)
   (registry
    "#\\ character names"
-   "character-name"
+   "character-names"
    '(p)
    (tabulate
     '("ID" "Escape" "Description")
@@ -248,9 +262,9 @@
                  `(((code ,(assoc1 'id entry)))
                    ((code ,(or (assoc? 'string-escape entry) "")))
                    ,(format-description entry))))
-         (sort-by-id (read-all-from-file "character-name.pose"))))))
+         (sort-by-id (read-all-from-file "character-names.pose"))))))
 
-(define (hash-syntax)
+(define (hash-syntax-registry)
   (registry
    "# lexical syntax"
    "hash-syntax"
@@ -265,7 +279,7 @@
                    ,(format-description entry))))
          (read-all-from-file "hash-syntax.pose")))))
 
-(define (hash-bang-syntax)
+(define (hash-bang-syntax-registry)
   (registry
    "#! lexical syntax"
    "hash-bang-syntax"
@@ -279,10 +293,10 @@
                    ,(format-description entry))))
          (sort-by-id (read-all-from-file "hash-bang-syntax.pose"))))))
 
-(define (filename-extension)
+(define (filename-extensions-registry)
   (registry
    "Filename extensions"
-   "filename-extension"
+   "filename-extensions"
    '(p)
    (tabulate
     '("Extension" "Stands for" "Description")
@@ -291,18 +305,18 @@
                  `(((code ,(assoc1 'id entry)))
                    (,(assoc1 'stands-for entry))
                    ,(format-description entry))))
-         (read-all-from-file "filename-extension.pose")))))
+         (read-all-from-file "filename-extensions.pose")))))
 
-(define (version-flag-property)
+(define (version-properties-registry)
   (registry
-   "Version flag properties"
-   "version-flag-property"
+   "Version properties"
+   "version-properties"
    '(p "SRFI 176")
    (tabulate
     '("ID" "Description" "Type")
     (map (lambda (entry)
            (append (the-usual entry) (list (list (assoc1 'type entry)))))
-         (sort-by-id (read-all-from-file "version-flag-property.pose"))))))
+         (sort-by-id (read-all-from-file "version-properties.pose"))))))
 
 (define (display-page)
   (display (string-append
@@ -348,18 +362,18 @@
          " Source is in a "
          (a (@ (href "https://github.com/schemeorg/registry.scheme.org"))
             "git repository") ".")
-      ,(scheme-standard)
-      ,(scheme-id)
-      ,(operating-system)
-      ,(machine)
-      ,(feature)
-      ,(cond-expand-test)
-      ,(library-name)
-      ,(library-name-scheme)
-      ,(character-name)
-      ,(hash-syntax)
-      ,(hash-bang-syntax)
-      ,(filename-extension)
-      ,(version-flag-property)))))
+      ,(scheme-standards-registry)
+      ,(scheme-id-registry)
+      ,(operating-systems-registry)
+      ,(machines-registry)
+      ,(features-registry)
+      ,(cond-expand-registry)
+      ,(library-names-registry)
+      ,(library-names-scheme-registry)
+      ,(character-names-registry)
+      ,(hash-syntax-registry)
+      ,(hash-bang-syntax-registry)
+      ,(filename-extensions-registry)
+      ,(version-properties-registry)))))
 
 (with-output-to-file "index.html" display-page)

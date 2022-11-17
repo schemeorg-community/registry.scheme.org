@@ -141,6 +141,11 @@
              (href ,(string-append "#" registry-id)))
           (code (@ (class "p-id"))
                 ,registry-id)))
+    (p "Source file: "
+       ,(let ((filename (string-append registry-id ".pose")))
+          `(a (@ (href ,filename))
+              (code (@ (class "p-source"))
+                    ,filename))))
     ,intro
     ,table))
 

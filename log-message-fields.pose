@@ -1,0 +1,39 @@
+((id "SEVERITY")
+ (mandatory yes)
+ (meaning "severity as an exact integer in [0,7]")
+ (reference "RFC 5424, 6.2.1"))
+
+((id "MSG")
+ (mandatory yes)
+ (meaning "free-form message as a string")
+ (reference ""))
+
+((id "FACILITY")
+ (mandatory no)
+ (meaning "facility as an exact integer")
+ (reference "RFC 5424, 6.2.1"))
+
+((id "APP-NAME")
+ (mandatory no)
+ (meaning "APP-NAME as a string")
+ (reference "RFC 5424, 6.2.5"))
+
+((id "PROCID")
+ (mandatory no)
+ (meaning "PROCID as a string")
+ (reference "RFC 5424, 6.2.6"))
+
+((id "MSGID")
+ (mandatory no)
+ (meaning "MSGID as a string")
+ (reference "RFC 5424, 6.2.7"))
+
+((id "MESSAGE_ID")
+ (mandatory no)
+ (meaning "128-bit message identifier")
+ (reference "systemd.journal-fields(7)"))
+
+((id "TOPIC")
+ (mandatory no)
+ (meaning "topic (or equivalent) of the logger")
+ (reference "Racket"))

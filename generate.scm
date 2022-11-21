@@ -324,6 +324,22 @@
            (append (the-usual entry) (list (list (assoc1 'type entry)))))
          (sort-by-id (read-all-from-file "version-properties.pose"))))))
 
+(define (log-message-fields-registry)
+  (registry
+   "Log message fields"
+   "log-message-fields"
+   '(p (a (@ (href "https://srfi.schemers.org/srfi-215/"))
+          "SRFI 215"))
+   (tabulate
+    '("Symbol" "Mandatory" "Meaning" "Reference")
+    (map (lambda (entry)
+           (cons #f
+                 `(((code ,(assoc1 'id entry)))
+                   (,(symbol->string (assoc1 'mandatory entry)))
+                   (,(assoc1 'meaning entry))
+                   (,(assoc1 'reference entry)))))
+         (read-all-from-file "log-message-fields.pose")))))
+
 (define (display-page)
   (display (string-append
             "<!doctype html>"
@@ -380,6 +396,7 @@
       ,(hash-syntax-registry)
       ,(hash-bang-syntax-registry)
       ,(filename-extensions-registry)
-      ,(version-properties-registry)))))
+      ,(version-properties-registry)
+      ,(log-message-fields-registry)))))
 
 (with-output-to-file "index.html" display-page)

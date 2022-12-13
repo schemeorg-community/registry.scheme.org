@@ -1,0 +1,7 @@
+((id "errno")
+ (description "C/Unix errno numbers on current machine")
+ (examples "EPERM ENOENT ESRCH"))
+
+((id "signal")
+ (description "C/Unix signal numbers on current machine")
+ (examples "SIGHUP SIGINT SIGQUIT"))

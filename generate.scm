@@ -340,6 +340,19 @@
                    (,(assoc1 'reference entry)))))
          (read-all-from-file "log-message-fields.pose")))))
 
+(define (codesets-registry)
+  (registry
+   "Codesets"
+   "codesets"
+   '(p (a (@ (href "https://srfi.schemers.org/srfi-238/"))
+          "SRFI 238"))
+   (tabulate
+    '("ID" "Description" "Examples")
+    (map (lambda (entry)
+           (append (the-usual entry)
+                   `(((code ,(assoc1 'examples entry))))))
+         (sort-by-id (read-all-from-file "codesets.pose"))))))
+
 (define (display-page)
   (display (string-append
             "<!doctype html>"
@@ -397,6 +410,7 @@
       ,(hash-bang-syntax-registry)
       ,(filename-extensions-registry)
       ,(version-properties-registry)
-      ,(log-message-fields-registry)))))
+      ,(log-message-fields-registry)
+      ,(codesets-registry)))))
 
 (with-output-to-file "index.html" display-page)

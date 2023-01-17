@@ -397,7 +397,8 @@
             "subscribe")
          "). Feel free to suggest additions and corrections there."
          " Source is in a "
-         (a (@ (href "https://github.com/schemeorg/registry.scheme.org"))
+         (a (@ (href
+                "https://github.com/schemeorg-community/registry.scheme.org"))
             "git repository") ".")
       ,(scheme-standards-registry)
       ,(scheme-id-registry)

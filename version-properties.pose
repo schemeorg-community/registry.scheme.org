@@ -30,6 +30,21 @@
  (description "C programming language compiler command")
  (type "string ..."))
 
+((id "c.library.compile")
+ (description
+  "Command to compile C shared library to be loaded by the implementation")
+ (type "string ..."))
+
+((id "c.library.extension")
+ (description
+  "File name extension (with dot, e.g. \".so\" or \".dylib\") for shared libraries to be loaded by the implementation")
+ (type "string"))
+
+((id "c.library.link")
+ (description
+  "Command to link C shared library to be loaded by the implementation")
+ (type "string ..."))
+
 ((id "c.link")
  (description "C programming language linker command")
  (type "string ..."))

@@ -110,6 +110,10 @@
  (description "Supported SRFIs (list may not be exhaustive)")
  (type "integer ..."))
 
+((id "scheme.srfi.count")
+ (description "How many SRFIs are known to be supported")
+ (type "integer"))
+
 ((id "website")
  (description "URL of the implementation's website")
  (type "string"))

@@ -1,13 +1,16 @@
 ((id "r0rs")
- (description "Scheme: An Interpreter for Extended Lambda Calculus (AI Memo No. 349)")
+ (description "Scheme: An Interpreter for Extended Lambda Calculus")
+ (series "AI Memo No. 349")
  (year 1975))
 
 ((id "r1rs")
- (description "The Revised Report on Scheme (AI Memo No. 452)")
+ (description "The Revised Report on Scheme")
+ (series "AI Memo No. 452")
  (year 1978))
 
 ((id "r2rs")
- (description "The Revised Revised Report on Scheme (AI Memo No. 848)")
+ (description "The Revised Revised Report on Scheme")
+ (series "AI Memo No. 848")
  (year 1985))
 
 ((id "r3rs")
@@ -15,7 +18,8 @@
  (year 1986))
 
 ((id "ieee-1178-1990")
- (description "IEEE Standard for the Scheme Programming Language (1178-1990)")
+ (description "IEEE Standard for the Scheme Programming Language")
+ (series "IEEE 1178-1990")
  (year 1990))
 
 ((id "r4rs")
@@ -23,7 +27,8 @@
  (year 1991))
 
 ((id "dsssl")
- (description "Document Style Semantics and Specification Language (ISO/IEC 10179:1996)")
+ (description "Document Style Semantics and Specification Language")
+ (series "ISO/IEC 10179:1996")
  (year 1996))
 
 ((id "r5rs")

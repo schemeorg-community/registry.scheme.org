@@ -157,11 +157,13 @@
    "scheme-standards"
    '(p)
    (tabulate
-    '("ID" "Name" "Year")
+    '("ID" "Name" "Year" "Series")
     (map (lambda (entry)
-           (let ((year (assoc? 'year entry)))
+           (let ((year (assoc? 'year entry))
+                 (series (assoc? 'series entry)))
              (append (the-usual entry)
-                     (list (list (if year (number->string year) ""))))))
+                     (list (list (if year (number->string year) ""))
+                           (list (or series ""))))))
          (read-all-from-file "scheme-standards.pose")))))
 
 (define (scheme-id-registry)

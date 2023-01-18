@@ -129,6 +129,10 @@
  (description "How many SRFIs are known to be supported")
  (type "integer"))
 
+((id "threads")
+ (description "Which backends can be used for multithreading on this system? Known values: pthreads, win32")
+ (type "symbol ..."))
+
 ((id "website")
  (description "URL of the implementation's website")
  (type "string"))

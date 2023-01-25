@@ -266,7 +266,7 @@
     '("ID" "Escape" "Description")
     (map (lambda (entry)
            (cons (assoc? 'class entry)
-                 `(((code ,(assoc1 'id entry)))
+                 `(((code "#\\" ,(assoc1 'id entry)))
                    ((code ,(or (assoc? 'string-escape entry) "")))
                    ,(format-description entry))))
          (sort-by-id (read-all-from-file "character-names.pose"))))))

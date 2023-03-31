@@ -3,7 +3,7 @@
  (meaning "severity as an exact integer in [0,7]")
  (reference "RFC 5424, 6.2.1"))
 
-((id "MSG")
+((id "MESSAGE")
  (mandatory yes)
  (meaning "free-form message as a string")
  (reference ""))

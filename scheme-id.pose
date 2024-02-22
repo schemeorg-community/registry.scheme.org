@@ -106,6 +106,10 @@
  (description "TinyScheme")
  (contact "Dimitrios Souflis"))
 
+((id "tr7")
+ (description "TR7")
+ (contact "José Bollo"))
+
 ((id "unsyntax")
  (description "Unsyntax")
  (contact "Marc Nieper-Wißkirchen"))

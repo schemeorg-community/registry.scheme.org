@@ -62,6 +62,10 @@
  (description "Loko Scheme")
  (contact "Göran Weinholt"))
 
+((id "meevax")
+ (description "Meevax")
+ (contact "Tatsuya Yamasaki"))
+
 ((id "mit")
  (description "MIT Scheme")
  (contact "Chris Hanson"))

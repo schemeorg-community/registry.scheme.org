@@ -92,7 +92,7 @@
 
 ((id "s9fes")
  (description "Scheme 9 from Empty Space")
- (contact "Nils Holm"))
+ (contact "Nils M Holm"))
 
 ((id "sagittarius")
  (description "Sagittarius Scheme")

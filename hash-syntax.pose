@@ -35,7 +35,7 @@
  (description "unsyntax-splicing [R6RS, syntax-case]"))
 
 ((id "#/.../")
- (description "Regular expression [Gauche]"))
+ (description "Regular expression [Gauche, Kawa, LIPS]"))
 
 ((id "#:")
  (description "Keyword object [Chicken, Guile, s7]; Keyword marker [Kawa, Racket]; Uninterned symbol [Gauche]"))

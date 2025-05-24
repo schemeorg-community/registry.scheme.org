@@ -102,6 +102,10 @@
  (description "SigScheme")
  (contact "Kazuki Ohta"))
 
+((id "skint")
+ (description "Skint")
+ (contact "Sergei Egorov"))
+
 ((id "steel")
  (description "Steel")
  (contact "Matthew Paras"))

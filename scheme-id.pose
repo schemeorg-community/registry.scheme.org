@@ -102,6 +102,10 @@
  (description "SigScheme")
  (contact "Kazuki Ohta"))
 
+((id "steel")
+ (description "Steel")
+ (contact "Matthew Paras"))
+
 ((id "stklos")
  (description "STklos")
  (contact "Erick Gallesio"))
